@@ -1,0 +1,10 @@
+----------------------Comparison Table---------------------------
+
+Feature	                                   StringBuffer	                                        StringBuilder
+Mutability	                   Mutable (contents can be changed)	                        Mutable (contents can be changed)
+Thread Safety	                 Synchronized (safe for multithreading)	                    Not synchronized (unsafe in threads)
+Performance	                   Slower due to synchronization overhead	                  Faster as it doesn’t check for locks
+Introduced in	                        JDK 1.0	                                                   JDK 1.5
+
+
+

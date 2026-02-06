@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creating Circle in Canvas</title>
+</head>
+<body>
+  
+  <canvas width="600" height="600" style="border: 1px solid black" id="canvas"></canvas>
+
+
+
+  <script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    ctx.arc(300, 200, 100, 0, 2*Math.PI, false);
+
+    // fill with black
+    ctx.fillStyle = "blue";
+     ctx.fill();
+
+    // stroke not fill
+    // ctx.strokeStyle = "blue";
+    // ctx.stroke();
+
+
+
+
+  </script>
+  
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  
+<script>
+  const canvas = document.createElement("canvas");
+  canvas.width = 400;
+  canvas.height = 400;
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext("2d");
+
+  let color = "white";
+
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x * 50, y * 50, 50, 50);
+      color = color === "white" ? "black" : "white";
+    }
+    color = color === "white" ? "black" : "white";
+  }
+</script>
+
+</body>
+</html>
+
+
+
+

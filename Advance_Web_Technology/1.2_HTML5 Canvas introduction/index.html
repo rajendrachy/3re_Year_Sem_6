@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<canvas width="600" height="600" style="border: 3px solid black;" id="canva"></canvas>
+
+
+
+<script>
+  let canvas = document.getElementById("canva");
+
+  let ctx = canvas.getContext("2d");
+
+  // creating a filled color
+  ctx.fillStyle = "blue";
+  ctx.fillRect(100, 200, 250, 100);
+ 
+
+  // creating a unfilled rectangle
+  ctx.strokeStyle = "red";
+  ctx.strokeRect(100, 200, 300, 200);
+ 
+
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,62 @@
+1. pwd = print working directory
+2. ls = list file and folder
+3. clear = for clear terminal screen
+4. history = show previous running command
+5. touch  = for creating empty file
+6. mkdir = for making directory
+7. cat = for display file content on terminal screen
+8. cd = for change directory
+9. nano = terminal based text editor like notepad
+10. echo  = for print string
+11.cp src dest = for copy content
+12. mv = for move /rename 
+13. rmdir = for delete empty directory
+14. rm = for deleting files
+15. rm -rf = for deleting forcefully files and directory
+16. du  = disk usage directory size
+17. df = disk free = available disk space 
+18. lsblk = list block device
+19. lscpu = cpu information
+20. free -h = for memory usage
+31. apt = package manager
+32. sudo apt update = for update package repo
+33. whoami = display name of current login user
+34. who = no. of user logged in 
+35. tty1   = ctrl +alt +F1-F7
+36. ping  = check network connection
+37. ip a = for ip information
+38. ip route = route information
+39.systemctl start service
+40. uname -a = for display system information
+41. tmux = terminal multiplexer
+42. = directory/file owner,group,otheruser
+43. chmod 777 file.txt  = for change permission of file
+44. chown user:group file.txt = for change ownership of file
+45. more  = for reading file in forward manner
+46. less = for reading/viewing file in forword and backword both
+47. head = for reading file from top
+48. tail = for reading file from bottom
+49 . top= real-time system performance
+50. htop = real-time system performance + advance option like seraching
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

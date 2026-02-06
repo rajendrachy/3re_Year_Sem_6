@@ -1,0 +1,158 @@
+--------------Explanation of Each Line------------
+str += 10;
+
+"abc" is a string.
++= with a number automatically converts the number to a string.
+So "abc" + 10 becomes "abc10".
+
+✅ Output → abc10
+
+
+
+
+
+
+
+
+---------System.out.println("abc" + "xyz");--------
+Both operands are strings.
+"abc" + "xyz" → "abcxyz".
+
+✅ Output → abcxyz
+
+
+
+
+
+
+
+
+
+
+-------System.out.println("abc" + "r");----------
+"abc" is a string, 'r' is a char.
+When a char is added to a String, Java converts the char to a String.
+
+"abc" + "r" → "abcr".
+
+✅ Output → abcr
+
+
+
+
+
+
+
+
+
+----------System.out.println("abc" + 10);---------
+"abc" is a string, 10 is an integer.
+Integer is converted to string → "10".
+
+"abc" + 10 → "abc10".
+
+✅ Output → abc10
+
+
+
+
+
+
+
+
+
+
+
+
+----------System.out.println("abc" + 10 + 20);-------------
+Java evaluates from left to right (not BODMAS when + is overloaded for strings).
+
+Step 1: "abc" + 10 → "abc10".
+
+Step 2: "abc10" + 20 → "abc1020".
+
+✅ Output → abc1020
+
+
+
+
+
+
+
+
+
+
+
+
+-----------System.out.println("abc" + (10 + 20));---------------
+Parentheses force 10 + 20 to be evaluated first (arithmetic addition).
+
+10 + 20 = 30.
+
+"abc" + 30 → "abc30".
+
+✅ Output → abc30
+
+
+
+
+
+
+
+
+
+
+
+------System.out.println(10 + 20 + "abc");-------
+Java evaluates left to right.
+
+Step 1: 10 + 20 = 30.
+
+Step 2: 30 + "abc" → "30abc".
+
+✅ Output → 30abc
+
+
+
+
+
+
+
+
+
+
+---------Final Output of Your Code--------
+abc10
+abcxyz
+abcr
+abc10
+abc1020
+abc30
+30abc
+
+
+--------Key Takeaways:----------
+When using + with strings, Java converts the other operand into a string.
+Evaluation is left to right, unless parentheses () change the order.
+With numbers inside parentheses, arithmetic is done before string concatenation.
+
+
+
+
+
+
+
+//----------String-------
+-----------String in Java--------------
+A String is an object, not just raw text, so it’s bigger than it looks.
+It internally stores characters in a char[] array.
+
+Each char in Java = 2 bytes (UTF-16 encoding).
+String memory =
+2 × (number of characters) + object overhead (headers, references, etc.)
+
+
+
+
+
+

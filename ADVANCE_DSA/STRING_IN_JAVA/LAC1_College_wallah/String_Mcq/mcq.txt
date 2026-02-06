@@ -1,0 +1,747 @@
+📘-------------- Java Strings – Practice MCQs------------------------
+1.Which of the following statements about Java Strings is true?
+A) Strings in Java are mutable.
+B) String literals are stored in the String pool.
+C) Strings are primitive data types in Java.
+D) "text" and new String("text") always refer to the same object.
+
+-------Answer: B---------
+In Java, Strings are NOT primitive data types. They are objects of the class java.lang.String.
+What does Primitive mean in Java?
+The word primitive means basic, fundamental, or not made up of other things.
+In Java,
+A primitive data type is the most basic building block of data.
+It is not an object, but a simple value stored directly in memory.
+Example: int x = 5; → Here, 5 is stored directly in memory as binary (0101).
+So primitive = raw/basic/simple type.
+
+
+
+
+
+
+
+
+
+
+2.What is the output of the following code?
+String s = "Java";
+System.out.println(s.length());
+A) 3
+B) 4
+C) 5
+D) Compilation error
+
+---------Answer: B----------
+
+
+
+
+
+
+
+
+
+3.Which method is used to convert primitive data types into Strings?
+A) toString()
+B) valueOf()
+C) substring()
+D) toCharArray()
+
+-----------Answer: B-------------
+-----Let’s compare String.valueOf() and toString() with examples so you see the difference clearly.------
+1. Using String.valueOf() (works on primitives directly)
+public class Main {
+    public static void main(String[] args) {
+        int num = 123;                         // primitive int
+        String s1 = String.valueOf(num);       // converts int → String
+
+        double pi = 3.14; 
+        String s2 = String.valueOf(pi);        // converts double → String
+
+        System.out.println("Using valueOf:");
+        System.out.println("int → " + s1);     // "123"
+        System.out.println("double → " + s2);  // "3.14"
+    }
+}
+
+---------Output-----------
+Using valueOf:
+int → 123
+double → 3.14
+
+👉 valueOf() can directly handle primitives.
+
+
+
+----------2. Using toString() (works only on objects)---------
+public class Main {
+    public static void main(String[] args) {
+        Integer num = 123;                     // Wrapper object, not primitive
+        String s1 = num.toString();            // works, gives "123"
+
+        Double pi = 3.14; 
+        String s2 = pi.toString();             // works, gives "3.14"
+
+        System.out.println("Using toString:");
+        System.out.println("Integer → " + s1);
+        System.out.println("Double → " + s2);
+    }
+}
+
+----------Output----------
+Using toString:
+Integer → 123
+Double → 3.14
+
+
+👉 toString() does not work on primitives directly.
+If you try:
+int num = 123;
+String s = num.toString();   // ❌ ERROR (because num is primitive, not object)
+------You’ll get a compile-time error.------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------4.What will the following code print?----------------------
+String s = " Java ";
+System.out.println("[" + s.trim() + "]");
+A) [ Java ]
+B) [Java]
+C) Java
+D) Compilation error
+
+Answer: B
+------The trim() method in Java:--------
+Removes all leading and trailing whitespace from a String.
+Returns a new String (since Strings are immutable in Java).
+It does not remove spaces inside the string.
+--->> trim() only removes spaces at the beginning and end of a string.
+
+
+If you want to remove the spaces from the middle also, you need a different approach.
+✅ Option 1: Remove all spaces (including middle) using replaceAll()
+public class Main {
+    public static void main(String[] args) {
+        String s = "   Ja va   ";
+
+        // Remove all spaces
+        String noSpaces = s.replaceAll("\\s", "");
+
+        System.out.println("Original: [" + s + "]");
+        System.out.println("No spaces: [" + noSpaces + "]");
+    }
+}
+
+
+
+
+----------------- Summary:-------------------------
+Use trim() → remove spaces at start & end.
+Use replaceAll("\\s", "") → remove all spaces (even in middle).
+Use replaceAll("\\s+", " ") → reduce multiple spaces to one space between words.
+
+
+
+
+
+
+
+
+
+
+5.Which of the following statements is true about the + operator with Strings?
+A) It modifies the original string.
+B) It creates a new String object internally using StringBuffer.
+C) It works only with String literals.
+D) It throws an exception if used more than once.
+
+----------Answer: B----------
+
+
+
+
+
+
+
+
+6.Which of these methods is NOT in the String class?
+A) length()
+B) charAt()
+C) append()
+D) substring()
+
+Answer: C
+
+
+
+
+
+
+
+
+
+7.What is the result of the following code?
+
+String s = "CodeQuotient";
+
+System.out.println(s.indexOf("Quo"));    // indexOf() finds the starting index of substring "Quo"
+
+A) 4
+B) 5
+C) 6
+D) -1
+
+Answer: A
+
+
+
+
+
+
+
+
+
+
+8.If two strings "hello" and "Hello" are compared using hashCode(), then:
+A) They will always return the same hashCode.
+B) They will always return different hashCodes because they differ in case.
+C) They will always return 0.
+D) Compilation error.
+
+Answer: B
+
+-----------Definition-------------
+hashCode() is a method in Object class (so every Java class inherits it).
+It returns an integer value (hash value) that represents the object in memory.
+
+public class Main {
+    public static void main(String[] args) {
+        String s1 = "hello";
+        String s2 = "Hello"; // if "hello" then hash code is same
+
+        // Getting hash codes
+        int h1 = s1.hashCode();
+        int h2 = s2.hashCode();
+
+        // Printing results
+        System.out.println("String 1: " + s1 + " → HashCode: " + h1);
+        System.out.println("String 2: " + s2 + " → HashCode: " + h2);
+
+        // Checking equality
+        if (h1 == h2) {
+            System.out.println("Both hash codes are same");
+        } else {
+            System.out.println("Hash codes are different");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+9.Which class is preferred when you need to modify a string frequently?
+A) String
+B) StringBuffer
+C) StringTokenizer
+D) StringPool
+
+Answer: B
+
+
+
+
+
+
+
+
+10.Which of these constructors exists in StringTokenizer?
+A) StringTokenizer(String s)
+B) StringTokenizer(String s, String delimiterSet)
+C) Both A and B
+D) None of the above
+
+Answer: C
+
+
+
+
+
+
+
+
+
+
+11.What is the output of the following code?
+
+String s = "abcabc";
+System.out.println(s.lastIndexOf('a'));
+
+A) 0
+B) 1
+C) 3
+D) 5
+
+Answer: C
+
+
+
+
+
+
+
+
+
+
+12.Why are Strings in Java immutable?
+A) For security and thread-safety reasons.
+B) To improve performance in string manipulation.
+C) To allow memory sharing in the string pool.
+D) All of the above.
+
+Answer: D
+
+
+
+
+
+
+
+13.Which of the following can be used to split a string into words?
+A) split()
+B) StringTokenizer
+C) Both A and B
+D) None of these
+
+Answer: C
+public class Main {
+    public static void main(String[] args) {
+        String text = "   Java is fun";
+        String[] words = text.split(" ");  // split by space
+
+        for (String word : words) {
+            System.out.print(word);
+        }
+    }
+}
+
+
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) {
+        String text = "Java is fun";
+        StringTokenizer st = new StringTokenizer(text, " "); // delimiter = space
+
+        while (st.hasMoreTokens()) {
+            System.out.println(st.nextToken());
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+14.What will be the output of the following code?
+
+String s = "Hello";
+s.toUpperCase();
+System.out.println(s);
+A) HELLO
+B) Hello
+C) hello
+D) Compilation error
+
+Answer: B
+
+
+public class Main {
+    public static void main(String[] args) {
+        String s1 = "Hello";
+
+        // Case 1: Without assignment
+        s1.toUpperCase();  // creates "HELLO" but not stored
+        System.out.println("Without assignment: " + s1);
+
+        // Case 2: With assignment
+        String s2 = "Hello";
+        s2 = s2.toUpperCase(); // stores the new string "HELLO"
+        System.out.println("With assignment: " + s2);
+    }
+}
+---------Output-----------
+Without assignment: Hello
+With assignment: HELLO
+
+
+
+
+
+
+
+
+15.Which of the following statements is false?
+A) equals() compares string contents.
+B) == compares object references.
+C) equalsIgnoreCase() ignores case while comparing.
+D) compareTo() returns only 0 or 1.
+
+Answer: B
+
+Example Program
+public class Main {
+    public static void main(String[] args) {
+        String s1 = "apple";
+        String s2 = "banana";
+        String s3 = "apple";
+
+        // Case 1: s1 < s2 (lexicographically smaller)
+        System.out.println("s1.compareTo(s2): " + s1.compareTo(s2));
+
+        // Case 2: s1 == s3 (equal strings)
+        System.out.println("s1.compareTo(s3): " + s1.compareTo(s3));
+
+        // Case 3: s2 > s1 (lexicographically greater)
+        System.out.println("s2.compareTo(s1): " + s2.compareTo(s1));
+    }
+}
+
+---------Output-----------
+s1.compareTo(s2): -1
+s1.compareTo(s3): 0
+s2.compareTo(s1): 1
+
+
+
+
+
+
+
+
+
+
+
+15.Which method splits a string into multiple tokens based on a delimiter?
+A) split()
+B) slice()
+C) parse()
+D) divide()
+
+-----Answer: A---------
+A delimiter is a character (or sequence of characters) that tells Java where to split the string.
+Common delimiters:
+Space " "
+Comma ","
+Hyphen "-"
+Tab "\t"
+
+
+
+-------Example 1: Split by space-----------
+public class Main {
+    public static void main(String[] args) {
+        String text = "Java is fun";
+        String[] words = text.split(" ");  // delimiter = space
+
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+}
+-------Output:----------
+Java
+is
+fun
+
+
+
+
+
+
+16.What is the output of the following code?
+String s = "Code";
+String t = "Code";
+System.out.println(s == t);
+A) true
+B) false
+C) Compilation error
+D) Depends on JVM
+
+Answer: A
+
+
+
+
+
+
+
+
+
+
+17.What is the output of this code?
+String s1 = new String("Java");
+String s2 = "Java";
+System.out.println(s1 == s2);
+
+A) true
+B) false
+C) Compilation error
+D) "Java"
+
+Answer: B
+
+
+
+
+
+
+
+
+18.Which of the following is NOT a valid method of String class?
+A) substring()
+B) charAt()
+C) append()
+D) replace()
+
+Answer: C
+
+
+
+
+
+
+
+19.What will the following code print?
+
+String s = "Java Programming";
+System.out.println(s.substring(5, 8));
+
+A) Java
+B) Pro
+C) ram
+D) amm
+
+Answer: B
+
+
+
+
+
+
+
+
+
+
+20.Which method is used to convert a string into a character array?
+A) toCharArray()
+B) getChars()
+C) charArray()
+D) Both A and B
+
+Answer: D
+
+
+
+
+
+
+
+
+
+
+21.What is the difference between equals() and == when comparing strings?
+A) equals() compares references, == compares values.
+B) equals() compares values, == compares references.
+C) Both compare only references.
+D) Both compare only values.
+
+Answer: B
+
+
+
+
+
+
+
+
+
+
+22.What is the output of this code?
+
+String s = "Hello World";
+System.out.println(s.replace('o', 'x'));
+A) Hellx Wxrld
+B) Hxllx Wxrld
+C) Hellx World
+D) Compilation error
+
+Answer: B
+
+
+
+
+
+
+
+
+23.Which method is inherited from Object class and overridden by String?
+A) toCharArray()
+B) toString()
+C) compareTo()
+D) equalsIgnoreCase()
+
+Answer: B
+
+
+
+
+
+
+
+
+
+
+
+24.Which of the following statements about StringBuffer is true?
+A) It is immutable.
+B) It is mutable.
+C) It is faster than StringBuilder.
+D) It cannot be converted to String.
+
+Answer: B
+
+
+
+
+
+
+
+
+
+25.What will the following code print?
+
+String s = "abc";
+s.concat("xyz");
+System.out.println(s);
+
+A) abc
+B) xyz
+C) abcxyz
+D) Compilation error
+
+Answer: A
+
+
+
+
+
+
+26.Which method can be used to compare two strings lexicographically?
+A) equals()
+B) compareTo()
+C) match()
+D) compare()
+
+Answer: B
+
+
+
+
+
+
+
+27.Which method is used to get the hash code of a string?
+A) getHash()
+B) hashCode()
+C) toHash()
+D) code()
+
+Answer: B
+
+
+
+
+
+
+
+
+
+28.What is the output of the following code?
+
+String s = "JAVA";
+System.out.println(s.toLowerCase());
+
+A) JAVA
+B) java
+C) Java
+D) compilation error
+
+Answer: B
+
+
+
+
+
+
+
+
+29.Which package contains the StringTokenizer class?
+A) java.lang
+B) java.util
+C) java.text
+D) java.io
+
+Answer: B
+
+
+
+
+
+
+
+30.Which of the following is the correct constructor of StringTokenizer?
+A) StringTokenizer(String s)
+B) StringTokenizer(String s, String delimiters)
+C) Both A and B
+D) None
+
+Answer: C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

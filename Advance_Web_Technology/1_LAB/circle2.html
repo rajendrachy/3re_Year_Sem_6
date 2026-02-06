@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Circle with Text</title>
+</head>
+<body>
+
+<canvas id="canvas" width="300" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  ctx.beginPath();
+  ctx.arc(150, 150, 50, 0, Math.PI * 2);
+  ctx.fillStyle = "red";
+  ctx.fill();
+
+  ctx.fillStyle = "white";
+  ctx.font = "20px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("TEXT", 150, 150);
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

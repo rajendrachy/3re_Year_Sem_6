@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Circle with Centered Text</title>
+</head>
+<body>
+
+<canvas id="canvas" width="300" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  class Circle {
+    constructor(x, y, radius, color, text) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.color = color;
+      this.text = text;
+    }
+
+    draw(context) {
+      context.beginPath();
+      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      context.fillStyle = this.color;
+      context.fill();
+
+      context.fillStyle = "white";
+      context.font = "20px Aerial";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.fillText(this.text, this.x, this.y);
+    }
+  }
+
+  const myCircle = new Circle(150, 150, 50, "red", "Circle");
+
+  myCircle.draw(ctx);
+</script>
+
+</body>
+</html>
+
+
+
+
+

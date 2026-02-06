@@ -1,0 +1,475 @@
+-------------MCQs on String, StringBuffer & StringBuilder-----------------
+
+1. Which of the following statements about String in Java is correct?
+A) Strings are mutable.
+B) Strings are immutable.
+C) Strings are faster than StringBuilder for frequent modifications.
+D) Strings are synchronized.
+👉 Answer: B
+
+
+
+
+
+
+
+2. Which package contains the classes StringBuffer and StringBuilder?
+A) java.util
+B) java.io
+C) java.lang
+D) java.text
+👉 Answer: C
+
+
+
+
+
+
+
+
+
+
+3. What is the main difference between StringBuffer and StringBuilder?
+A) StringBuffer is faster but not synchronized.
+B) StringBuilder is synchronized but slower.
+C) StringBuffer is synchronized, StringBuilder is not.
+D) Both are immutable.
+👉 Answer: C
+
+
+
+----------------------Comparison Table---------------------------
+
+Feature	                                   StringBuffer	                                        StringBuilder
+Mutability	                   Mutable (contents can be changed)	                        Mutable (contents can be changed)
+Thread Safety	                 Synchronized (safe for multithreading)	                    Not synchronized (unsafe in threads)
+Performance	                   Slower due to synchronization overhead	                  Faster as it doesn’t check for locks
+Introduced in	                        JDK 1.0	                                                   JDK 1.5
+
+
+
+
+
+
+
+
+
+
+4. Which of the following constructors is NOT available in StringBuffer?
+A) StringBuffer()
+B) StringBuffer(int size)
+C) StringBuffer(String s)
+D) StringBuffer(char[] arr)
+👉 Answer: D
+
+-----------Available StringBuffer constructors in Java:-----------
+StringBuffer() → creates an empty buffer with default capacity (16).
+StringBuffer sb1 = new StringBuffer();
+
+StringBuffer(int size) → creates an empty buffer with specified capacity.
+StringBuffer sb2 = new StringBuffer(50); // capacity = 50
+
+
+
+StringBuffer(String s) → creates a buffer with the specified string.
+StringBuffer sb3 = new StringBuffer("Hello");
+
+
+
+
+
+--------- Not available:-----------
+StringBuffer(char[] arr) → This constructor does not exist.
+If you try:
+char[] arr = {'H','i'};
+StringBuffer sb4 = new StringBuffer(arr); // ❌ Compile-time error
+
+
+
+
+You’ll get an error because Java does not allow direct char[] → StringBuffer constructor.
+👉 Instead, you must first convert the char[] into a String, then pass it:
+
+char[] arr = {'H','i'};
+StringBuffer sb4 = new StringBuffer(new String(arr)); // ✅ works
+
+-------------- Why D is the correct answer?---------------
+Because StringBuffer has only 3 constructors (default, capacity-based, and string-based). There is no constructor that accepts char[] directly.
+
+
+
+
+
+
+
+
+
+
+
+
+5. Which of these methods is used to replace a character at a specific index in StringBuffer?
+A) replace()
+B) charAt()
+C) setCharAt()
+D) updateCharAt()
+👉 Answer: C
+
+
+
+-----------Methods in StringBuffer:-----------------
+replace(int start, int end, String str)
+→ Replaces a substring between indexes, not a single character.
+sb.replace(1, 3, "xy"); // replaces substring
+
+
+charAt(int index)
+→ Returns the character at given index (read-only).
+char c = sb.charAt(2); // just fetches char
+
+
+
+setCharAt(int index, char ch) ✅
+→ Replaces the character at a specific index.
+
+sb.setCharAt(0, 'H'); // changes first char
+
+
+
+updateCharAt() ❌
+→ This method does not exist in Java.
+
+
+
+
+
+
+
+
+
+
+
+
+6. Which of the following statements is true?
+A) StringBuilder is thread-safe.
+B) StringBuffer is synchronized.
+C) String objects are mutable.
+D) StringBuilder is slower than String.
+👉 Answer: B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. Suppose:
+StringBuffer sb = new StringBuffer("Hello");
+sb.reverse();
+System.out.println(sb);
+
+What will be the output?
+A) olleH
+B) Hello
+C) Error
+D) oellH
+👉 Answer: A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8. Which of the following is fastest for reversing a string?
+A) Using String concatenation
+B) Using StringBuffer append()
+C) Using StringBuffer reverse() method
+D) Using loop with charAt() on String
+👉 Answer: C
+
+
+
+
+
+
+
+
+
+
+9. Which operator cannot be directly used with StringBuffer or StringBuilder?
+A) +
+B) append()
+C) insert()
+D) reverse()
+👉 Answer: A
+
+
+
+
+
+
+
+
+
+
+10. Consider the code:
+StringBuilder sb = new StringBuilder("Java");
+sb.append(" is Fun");
+System.out.println(sb);
+
+What will be printed?
+A) Java
+B) Java is
+C) Java Fun
+D) Java is Fun
+👉 Answer: D
+
+----------The append() method in StringBuffer / StringBuilder does not allow you to directly give an index.--------------
+It always adds content at the end of the sequence.
+✅ Example with append():
+StringBuilder sb = new StringBuilder("Java");
+sb.append(" is Fun");  // Always adds at the end
+System.out.println(sb); 
+// Output: Java is Fun
+
+
+
+
+
+
+
+
+
+
+
+11. Which of the following will create a new object in memory?
+A)
+String s = "Hello";
+s.concat("World");
+
+
+B)
+StringBuffer sb = new StringBuffer("Hello");
+sb.append("World");
+
+C) Both A and B
+D) Neither A nor B
+👉 Answer: A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12. What is the default capacity of a new StringBuffer() object?
+A) 0
+B) 16
+C) 32
+D) Unlimited
+👉 Answer: B
+
+
+
+
+
+
+
+
+
+
+13. Consider:
+StringBuilder sb = new StringBuilder(5);
+sb.append("HelloWorld");
+System.out.println(sb.capacity());
+
+
+What will be the output?
+A) 5
+B) 10
+C) 16
+D) 12
+👉 Answer: D
+(Initial = 5, after overflow → (oldCapacity*2)+2 = 12 
+
+
+
+
+
+
+
+
+
+14. Which method in StringBuffer/StringBuilder is used to delete characters from index 2 to 5 (exclusive)?
+A) remove(2,5)
+B) delete(2,5)
+C) erase(2,5)
+D) substring(2,5)
+👉 Answer: B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15. Consider:
+String s1 = "Java";
+String s2 = "Java";
+System.out.println(s1 == s2);
+What will be printed?
+A) true
+B) false
+C) Error
+D) Depends on JVM
+👉 Answer: A
+(Both refer to the same object in String Constant Pool)
+
+-------------String Constant Pool (SCP)-----------------
+It’s a special memory area inside the heap.
+Purpose: To reuse immutable strings and save memory.
+Only string literals go here automatically.
+
+
+
+
+
+
+
+16. Which method returns the current length of a StringBuffer object?
+A) size()
+B) length()
+C) capacity()
+D) count()
+👉 Answer: B
+
+
+
+
+
+
+
+17. What will be the output?
+String s = "Hello";
+s.concat(" World");
+System.out.println(s);
+
+
+A) Hello World
+B) Hello
+C) Error
+D) World
+👉 Answer: B
+(Because String is immutable)
+
+
+
+
+
+
+
+
+
+
+18. Which of these is NOT a method in StringBuilder?
+A) append()
+B) reverse()
+C) insert()
+D) compareTo()
+👉 Answer: D
+
+
+
+
+
+
+
+
+
+
+
+19. Which statement is correct?
+A) String objects are mutable.
+B) StringBuilder is synchronized.
+C) StringBuffer is thread-safe.
+D) StringBuilder is slower than StringBuffer.
+👉 Answer: C
+
+
+
+
+
+
+
+
+20. Output of the following code?
+StringBuffer sb = new StringBuffer("ABCDE");
+sb.delete(1, 3);
+System.out.println(sb);
+
+
+A) ABDE
+B) ACDE
+C) ADE
+D) AE
+👉 Answer: C
+(Removes index 1 and 2 → "A" + "DE")
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Border Hit Counter</title>
+  <style>
+    canvas {
+      border: 3px solid black;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="canvas" width="300" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  let hitCount = 0;
+
+  class Circle {
+    constructor(x, y, radius, color, text) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.color = color;
+      this.text = text;
+      this.dx = 2;
+      this.dy = 2;
+    }
+
+    draw(ctx) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+      ctx.fillStyle = "white";
+      ctx.font = "16px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(this.text, this.x, this.y);
+    }
+
+    update() {
+      this.x += this.dx;
+      this.y += this.dy;
+
+      let hit = false;
+
+      if (this.x + this.radius >= canvas.width) {
+        this.x = canvas.width - this.radius;
+        this.dx *= -1;
+        hit = true;
+      }
+
+      if (this.x - this.radius <= 0) {
+        this.x = this.radius;
+        this.dx *= -1;
+        hit = true;
+      }
+
+      if (this.y + this.radius >= canvas.height) {
+        this.y = canvas.height - this.radius;
+        this.dy *= -1;
+        hit = true;
+      }
+
+      if (this.y - this.radius <= 0) {
+        this.y = this.radius;
+        this.dy *= -1;
+        hit = true;
+      }
+
+      if (hit) {
+        this.onHit();
+      }
+    }
+
+    onHit() {
+      hitCount += 1;
+      this.text = hitCount;
+      this.color = getRandomColor();
+    }
+  }
+
+  function getRandomColor() {
+    return `hsl(${Math.random() * 360}, 100%, 50%)`;
+  }
+
+  const myCircle = new Circle(150, 150, 30, "red", 0);
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    myCircle.update();
+    myCircle.draw(ctx);
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
