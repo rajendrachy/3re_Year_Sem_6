@@ -1,0 +1,6 @@
+
+
+SQL is not a case sensitive
+
+Drop means delete
+
