@@ -1,0 +1,2 @@
+Schema means design (Columns, dataType, Constraints)
+

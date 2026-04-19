@@ -1,0 +1,60 @@
+
+1. What is a .pem File in EC2?
+A .pem file is the private key file used to connect securely to an EC2 instance.
+In Amazon EC2, when you create a Key Pair, AWS gives you a file with the extension .pem.
+
+
+
+🔐 Simple Definition
+A .pem file is a secret key file used to log in to your EC2 server.
+It works like a secure password, but it is much safer than a normal password.
+
+
+
+
+📌 Important Points
+It is downloaded when you create a Key Pair.
+It contains the private key.
+It is required to connect to a Linux EC2 instance using SSH.
+
+
+
+
+You must keep it safe.
+If you lose it, you cannot easily access your server.
+
+
+
+
+💻 How It Is Used
+Example command to connect:
+ssh -i mykey.pem ec2-user@public-ip
+
+
+mykey.pem → Your private key file
+ec2-user → Default username
+public-ip → Public IP of EC2
+
+
+
+
+
+⚠️ Important Rule
+Never share your .pem file with anyone.
+If someone has your .pem file, they can access your server.
+
+
+
+🎯 Easy Way to Remember
+Key Pair = Security system
+Public Key = Stored inside server
+.pem file = Your secret login key
+
+
+
+
+
+
+
+
+

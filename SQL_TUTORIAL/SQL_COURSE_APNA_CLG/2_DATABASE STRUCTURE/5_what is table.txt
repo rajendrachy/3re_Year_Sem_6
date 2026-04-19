@@ -1,0 +1,10 @@
+
+
+
+
+
+A table is a collection of related data organized into rows (records) and columns (fields).
+
+
+
+

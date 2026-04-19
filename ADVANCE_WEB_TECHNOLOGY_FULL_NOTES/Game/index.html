@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical Obstacle Game</title>
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      background: #eee;
+      border: 3px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = 1000;
+canvas.height = 800;
+
+const CEILING = 100;
+const GAP_H = 160;
+const OB_W = 40;
+const OB_GAP_MIN = 200;
+const OB_GAP_MAX = 450;
+const OB_DISTANCE = 300;
+
+let player = {
+  x: 100,
+  y: canvas.height - 50,
+  w: 40,
+  h: 50,
+  vx: 0,
+  vy: 0,
+  speed: 4,
+  gravity: 0.5,
+  upPressed: false
+};
+
+let obstacles = [];
+let nextObstacleX = 500;
+
+function createObstacle() {
+  obstacles.push({
+    x: nextObstacleX,
+    gapY:
+      Math.random() * (OB_GAP_MAX - OB_GAP_MIN) + OB_GAP_MIN
+  });
+  nextObstacleX += OB_DISTANCE;
+}
+
+for (let i = 0; i < 3; i++) createObstacle();
+
+function update() {
+
+  if (player.upPressed) player.vy = -6;
+  else player.vy += player.gravity;
+
+  player.x += player.vx;
+  player.y += player.vy;
+
+  if (player.y < CEILING) {
+    player.y = CEILING;
+    player.vy = 0;
+  }
+
+  if (player.y + player.h > canvas.height) {
+    player.y = canvas.height - player.h;
+    player.vy = 0;
+  }
+
+  if (player.x + canvas.width > nextObstacleX) {
+    createObstacle();
+  }
+
+  obstacles.forEach(o => {
+    const hitX =
+      player.x + player.w > o.x &&
+      player.x < o.x + OB_W;
+
+    const hitTop = player.y < o.gapY;
+    const hitBottom =
+      player.y + player.h > o.gapY + GAP_H;
+
+    if (hitX && (hitTop || hitBottom)) {
+      resetGame();
+    }
+  });
+}
+
+function resetGame() {
+  player.x = 100;
+  player.y = canvas.height - player.h;
+  player.vy = 0;
+  obstacles = [];
+  nextObstacleX = 500;
+  for (let i = 0; i < 3; i++) createObstacle();
+}
+
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.save();
+  ctx.translate(-player.x + 150, 0);
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(0, CEILING);
+  ctx.lineTo(5000, CEILING);
+  ctx.stroke();
+
+  ctx.fillStyle = "red";
+  obstacles.forEach(o => {
+    ctx.fillRect(o.x, CEILING, OB_W, o.gapY - CEILING);
+    ctx.fillRect(
+      o.x,
+      o.gapY + GAP_H,
+      OB_W,
+      canvas.height
+    );
+  });
+
+  ctx.fillStyle = "green";
+  ctx.fillRect(player.x, player.y, player.w, player.h);
+
+  ctx.restore();
+}
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+loop();
+
+window.addEventListener("keydown", e => {
+  if (e.key === "ArrowUp") player.upPressed = true;
+  if (e.key === "ArrowRight") player.vx = player.speed;
+  if (e.key === "ArrowLeft") player.vx = -player.speed;
+});
+
+window.addEventListener("keyup", e => {
+  if (e.key === "ArrowUp") player.upPressed = false;
+  if (e.key === "ArrowRight" || e.key === "ArrowLeft")
+    player.vx = 0;
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

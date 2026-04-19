@@ -1,0 +1,354 @@
+//------------------Java Interface – Complete Revision Note--------------------
+---- What is an Interface in Java?-----
+An interface is a reference type in Java, similar to a class, but it only contains method declarations (abstract) and constants (by default).
+--- An interface defines what a class must do, but not how it does it.----
+
+
+
+
+
+
+
+--------- Why Use Interfaces?--------------
+To achieve 100% abstraction (until Java 8).
+For multiple inheritance (Java doesn’t support multiple class inheritance, but supports multiple interface implementation).
+
+To define contracts (i.e., common behavior across different classes).
+For loose coupling between classes.
+
+
+
+
+//-----------------------Example of multiple inheritance----------------
+class A {
+public:
+    void methodA() { cout << "From A"; }
+};
+
+class B {
+public:
+    void methodB() { cout << "From B"; }
+};
+
+class C : public A, public B {  // Multiple inheritance
+};
+
+int main() {
+    C obj;
+    obj.methodA(); // From A
+    obj.methodB(); // From B
+}
+
+
+
+
+
+------- Syntax--------------
+interface InterfaceName {
+    // abstract methods
+    void method1();     // implicitly public and abstract
+    int method2(String input);
+}
+
+
+
+
+------------------Implementing an Interface:-----------------
+class MyClass implements InterfaceName {
+    public void method1() {
+        // implementation
+    }
+
+    public int method2(String input) {
+        return input.length();
+    }
+}
+
+
+
+
+
+
+---------------- Key Rules-------------------
+Concept	Rule                                                / Default Behavior
+Method Modifiers	                                     public abstract (even if not written)
+Variable Modifiers                                   	public static final (constants)
+Constructor in Interface?	                           ❌ Not allowed
+Object Creation	                                     ❌ Cannot create object of interface directly
+Multiple Interfaces	                                ✅ A class can implement multiple interfaces
+Interface Inheritance	                            ✅ Interface can extend other interfaces
+Access Modifiers in Class	                        Must use public for implemented methods
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------Example: Interface in Action-------------------
+interface Animal {
+    void eat();
+    void sleep();
+}
+
+class Dog implements Animal {
+    public void eat() {
+        System.out.println("Dog eats meat");
+    }
+
+    public void sleep() {
+        System.out.println("Dog sleeps 8 hours");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Interface reference
+        a.eat();
+        a.sleep();
+    }
+}
+
+--------- Output:--------------
+Dog eats meat  
+Dog sleeps 8 hours
+
+
+
+
+
+
+
+
+
+
+
+
+------------ Advanced Interface Features (Java 8+)---------------
+---------- default Methods (Java 8)-------------
+Allows a method with body in interface.
+interface MyInterface {
+    default void show() {
+        System.out.println("Default implementation");
+    }
+}
+
+
+
+
+
+
+
+------------ static Methods (Java 8)------------------
+interface Utility {
+    static void help() {
+        System.out.println("Static method in interface");
+    }
+}
+
+
+----------------Static Method in Interface (Java 8+)------------------
+In Java, static means the method belongs to the interface itself, not to any implementing class or object.
+------------1. Meaning------------
+A static method inside an interface:
+Cannot be overridden by implementing classes.
+Can only be called using the interface name, not through an object.
+
+
+
+
+
+
+
+--------2. Your Example------------
+interface Utility {
+    static void help() {
+        System.out.println("Static method in interface");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        // Calling static method of interface
+        Utility.help(); // ✅ Correct way
+    }
+}
+
+-------Output:--------
+Static method in interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------private Methods (Java 9)-----------------
+Used to avoid duplicate code inside interface default methods.
+
+interface Demo {
+    private void helper() {
+        System.out.println("Private helper");
+    }
+
+    default void test() {
+        helper();
+    }
+}
+
+
+
+
+
+
+
+------------------- Multiple Inheritance with Interfaces--------------
+
+interface A {
+    void display();
+}
+
+interface B {
+    void show();
+}
+
+class C implements A, B {
+    public void display() {
+        System.out.println("Display from A");
+    }
+
+
+    public void show() {
+        System.out.println("Show from B");
+    }
+}
+
+=>----This is allowed. Unlike classes, Java allows multiple interfaces.
+
+
+
+
+
+//--------full example--------
+// Multiple Inheritance in Java using Interfaces
+
+interface A {
+    void display();
+}
+
+interface B {
+    void show();
+}
+
+class C implements A, B {
+    // Implementing display() from interface A
+    public void display() {
+        System.out.println("Display from A");
+    }
+
+    // Implementing show() from interface B
+    public void show() {
+        System.out.println("Show from B");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        A obj = new C();
+        obj.display(); // Calls display() from A
+        // Calls show() from B
+        B obj1 = new C();
+        obj1.show();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+--------------------Interface vs Abstract Class------------------------
+Feature	                                               Interface	                                         Abstract Class
+Methods	                                    Only abstract (till Java 7)	                                Both abstract & concrete
+Constructors	                                    ❌ No	                                                 ✅ Yes
+Variables	                                      public static final	                                  Instance or static
+Multiple Inheritance	                           ✅ Yes	                                       ❌ No (only one class)
+Access Modifiers	                             public only	                                    Can use all modifiers
+
+
+
+
+
+
+
+
+
+
+------------------ Common Errors-----------------------
+Mistake	Error                                              Message / Issue
+Not using public in implementation	                      Method is less visible than in interface
+Creating object of interface	                          Cannot instantiate the type interface
+Not implementing all methods	                          Must be declared abstract or implement method
+
+
+
+
+
+
+
+--------------- Real-life Use Cases-------------------------
+Runnable interface in multithreading
+Comparable, Comparator in sorting
+Serializable, Cloneable
+
+
+
+Interfaces in frameworks like Spring, Hibernate
+
+Android development: Event listeners like OnClickListener
+
+
+
+
+
+
+
+
+-------------------- Summary----------------------
+Concept	                                                   Key Point
+Interface Definition	                        Blueprint of class (abstract)
+Implementation	                                  implements keyword
+Polymorphism	                                Interface reference to child object
+Abstraction	100%                                      (before Java 8)
+Multiple Inheritance	                               Through interfaces
+Java 8 Enhancements	                                  default, static methods
+Java 9 Enhancements	                                   private methods in interfaces
+
+
+
+
+
+
+
+
+

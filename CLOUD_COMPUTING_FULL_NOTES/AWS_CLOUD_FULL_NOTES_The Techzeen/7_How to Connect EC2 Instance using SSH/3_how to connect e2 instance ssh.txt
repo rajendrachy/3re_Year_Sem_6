@@ -1,0 +1,74 @@
+
+
+🔑 How to Connect EC2 Using SSH on Windows 11 (Without PuTTY)
+
+Step 1: Launch Your EC2 Instance
+Open AWS Management Console → EC2 → Launch Instance.
+Select AMI (Amazon Linux or Ubuntu recommended).
+Choose Instance Type (t2.micro for Free Tier).
+Configure network & security group:
+Allow SSH (port 22) from your IP.
+
+
+
+
+
+
+Step 2: Create or Use a Key Pair
+During launch, select Create new key pair or Use existing.
+Name your key pair (e.g., mykey) and download .pem file.
+Save it in a secure folder, e.g., C:\Users\<YourName>\keys.
+
+
+
+
+
+
+Step 3: Open Windows Terminal / PowerShell
+Press Win + X → Windows Terminal / PowerShell.
+
+
+
+
+Step 4: Navigate to Your Key Folder
+cd C:\Users\<YourName>\keys
+
+
+
+Step 5: Connect to EC2 Using SSH
+ssh -i mykey.pem ec2-user@<public-ip>
+Replace ec2-user with:
+ubuntu → if Ubuntu AMI
+centos → if CentOS AMI
+Replace <public-ip> with your EC2 instance public IP.
+
+
+
+
+
+
+Step 6: Verify Connection
+If successful, you will see a prompt like:
+[ec2-user@ip-xx-xx-xx-xx ~]$
+
+
+
+
+Now you can manage your EC2 instance from Windows Terminal.
+
+
+
+Step 7: Security Tips
+Only allow your IP in Security Group.
+Keep .pem file safe.
+
+
+Use IAM roles for AWS resource access instead of storing credentials on EC2.
+
+
+
+
+
+
+
+

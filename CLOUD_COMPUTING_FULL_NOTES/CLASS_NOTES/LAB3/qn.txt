@@ -1,0 +1,12 @@
+
+
+Q.1. push index.html page in the github 
+2. create a ec2 ubantu instance and in user data section install nginx git clone index.html page paste into /var/www/html directory step wise to do this
+
+
+
+
+
+
+
+

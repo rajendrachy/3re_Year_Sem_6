@@ -1,0 +1,106 @@
+
+
+🌐 Network Settings in EC2
+In Amazon EC2, network settings define how your instance connects to the internet and other resources.
+When launching an EC2 instance, you must configure these network settings.
+
+
+
+
+🧠 Simple Definition
+Network settings control how your EC2 cloud computer communicates with the outside world.
+
+
+
+
+🔹 Main Network Settings
+1️⃣ VPC (Virtual Private Cloud)
+EC2 must run inside a Amazon VPC.
+It is your private network in AWS.
+Isolates your resources.
+Every EC2 instance belongs to one VPC.
+
+
+
+2️⃣ Subnet
+Subnet is a part of the VPC.
+It decides whether the instance is public or private.
+
+
+
+
+Types:
+Public Subnet → Has internet access.
+Private Subnet → No direct internet access.
+
+
+
+
+3️⃣ Public IP
+If enabled, EC2 gets a public IP.
+Used to access the server from the internet.
+Temporary unless you assign an Elastic IP.
+
+
+
+
+
+4️⃣ Elastic IP
+Permanent public IP.
+Used for production servers.
+
+
+
+
+
+5️⃣ Internet Gateway (IGW)
+Connects VPC to the internet.
+Required for public access.
+
+
+
+
+
+6️⃣ Route Table
+Controls where traffic goes.
+
+
+Example:
+0.0.0.0/0 → Internet Gateway (for internet traffic)
+
+
+
+
+7️⃣ Security Group
+Acts like a firewall.
+Controls inbound and outbound traffic.
+
+
+Example:
+Port 22 → SSH
+Port 80 → HTTP
+
+
+
+🎯 Easy Summary
+VPC = Private network
+Subnet = Network section
+Public IP = Temporary internet address
+Elastic IP = Permanent internet address
+Internet Gateway = Internet connection
+Route Table = Traffic rules
+Security Group = Firewall
+
+
+
+
+
+📌 Simple Flow
+User → Internet → Internet Gateway → VPC → Subnet → EC2
+
+
+
+
+
+
+

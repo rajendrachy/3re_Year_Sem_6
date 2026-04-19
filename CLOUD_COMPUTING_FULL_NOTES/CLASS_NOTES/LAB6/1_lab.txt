@@ -1,0 +1,7 @@
+
+
+Q1. “Create 3 Ubuntu EC2 instances running Apache and configure an Application Load Balancer with a Target Group to distribute traffic across the instances.”
+
+
+
+

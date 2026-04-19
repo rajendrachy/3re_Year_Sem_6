@@ -1,0 +1,131 @@
+
+
+🌐 Install NGINX on EC2
+This guide assumes you already have an EC2 instance running and can SSH into it.
+
+
+
+
+☑️ Step 1: Connect to EC2 via SSH
+Open PowerShell / Terminal (Windows 11 / Linux / macOS) and run:
+ssh -i mykey.pem ec2-user@<public-ip>
+
+Replace mykey.pem with your key file.
+Replace <public-ip> with your EC2 public IP.
+
+For Ubuntu AMI, the username is ubuntu.
+For Amazon Linux 2, the username is ec2-user.
+
+
+
+
+
+
+☑️ Step 2: Update the Package Repository
+Amazon Linux 2:
+sudo yum update -y
+sudo amazon-linux-extras install nginx1 -y
+
+Ubuntu / Debian:
+sudo apt update -y
+sudo apt install nginx -y
+
+
+
+
+
+
+☑️ Step 3: Start and Enable NGINX
+Amazon Linux / CentOS:
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+Ubuntu / Debian:
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+
+start → starts NGINX immediately
+enable → ensures NGINX starts automatically after reboot
+
+
+
+
+☑️ Step 4: Adjust Security Group
+Go to AWS Console → EC2 → Security Groups.
+
+Edit Inbound Rules:
+Allow HTTP (port 80) from Anywhere (0.0.0.0/0)
+Optional: Allow HTTPS (port 443)
+
+
+
+
+
+
+
+☑️ Step 5: Verify Installation
+Open a web browser.
+Enter your EC2 public IP:
+http://<your-ec2-public-ip>
+You should see the NGINX default welcome page:
+
+Welcome to nginx!
+
+
+
+
+
+
+
+☑️ Step 6: Optional – Host a Static Website
+Navigate to NGINX web root directory:
+cd /usr/share/nginx/html      # Amazon Linux / CentOS
+cd /var/www/html              # Ubuntu / Debian
+
+
+Replace the default index.html:
+
+sudo nano index.html
+Add your HTML content:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My NGINX Website</title>
+</head>
+<body>
+    <h1>Welcome to My EC2 NGINX Server!</h1>
+</body>
+</html>
+
+What is this?
+Save and exit (Ctrl+O, Enter, Ctrl+X).
+
+
+
+
+
+
+
+☑️ Step 7: Restart NGINX After Changes
+sudo systemctl restart nginx
+
+
+
+✅ Summary
+Connect to EC2 → Update packages → Install NGINX → Start & enable → Open port 80 → Replace index.html → Verify in browser.
+Default web root: /usr/share/nginx/html (Amazon Linux / CentOS) or /var/www/html (Ubuntu).
+
+
+
+
+
+
+
+
+
+
+
+
+
+

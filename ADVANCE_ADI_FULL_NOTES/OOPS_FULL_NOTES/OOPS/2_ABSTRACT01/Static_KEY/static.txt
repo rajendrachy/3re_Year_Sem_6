@@ -1,0 +1,70 @@
+-----------------1. Definition------------------
+A static method is defined with the static keyword inside a class. It belongs to the class itself, not to any object instance.
+The static keyword in Java is used for memory management.
+
+
+
+
+
+
+----------------------2. Static Methods in Inheritance------------------
+Static methods are inherited by subclasses but cannot be overridden.
+If a subclass defines a static method with the same signature, it hides the superclass method (method hiding), not overrides it.
+Which method is called depends on the reference type, not the object type (compile-time binding).
+
+
+--------------------Example:---------------------------------
+class Parent {
+    static void display() {
+        System.out.println("Parent static method");
+    }
+}
+
+
+
+class Child extends Parent {
+    static void display() {
+        System.out.println("Child static method");
+    }
+}
+
+
+
+public class TestStaticMethods {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.display(); // Output: Parent static method
+
+        Child c = new Child();
+        c.display(); // Output: Child static method
+    }
+}
+Key Point: Unlike dynamic method dispatch for instance methods, static methods follow compile-time binding.
+
+
+
+
+
+
+
+
+
+------------------3. Important Rules--------------------------
+Static methods are resolved at compile time, not runtime.
+Static variables are class-level and shared across inheritance hierarchy.
+Method hiding happens when you define a static method in a subclass with the same signature as in the superclass.
+You can call a static method using either:
+
+Class name: Parent.display();
+Reference variable: p.display(); (but still resolved based on reference type)
+
+
+
+
+
+
+
+
+
+
+

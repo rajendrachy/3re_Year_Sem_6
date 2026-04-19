@@ -1,0 +1,18 @@
+
+Simple Summary
+Advanced Details = Extra control and automation settings.
+
+
+It helps you:
+Automate installation (User Data)
+Secure access (IAM Role)
+Protect instance (Termination Protection)
+Control performance (Monitoring, Placement)
+
+
+
+
+
+
+
+

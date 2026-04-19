@@ -1,0 +1,71 @@
+
+
+💾 Configure Storage in EC2
+In Amazon EC2, “Configure Storage” is the step where we choose the disk size and type for our EC2 instance.
+
+
+
+
+🧠 Simple Definition
+Configure Storage means selecting how much disk space your EC2 cloud computer will have.
+Just like a real computer needs a hard disk, EC2 also needs storage.
+
+
+
+
+🔹 Main Storage Type
+1️⃣ EBS (Elastic Block Store)
+EC2 mainly uses Amazon EBS.
+Acts like a hard disk.
+Stores Operating System.
+Stores applications and data.
+Persistent storage (data remains even if instance stops).
+
+
+
+
+
+
+👉 When launching EC2, you choose:
+Disk size (Example: 8 GB, 20 GB, 50 GB)
+Volume type (General Purpose SSD, etc.)
+
+
+
+
+
+🔹 What You Configure in Storage
+When configuring storage, you decide:
+📦 Volume size (How much GB)
+💽 Volume type (SSD / HDD)
+🔒 Delete on termination (Yes/No)
+⚙️ Delete on Termination Option
+
+
+Enabled → Disk is deleted when instance is terminated.
+Disabled → Disk remains even after instance is terminated.
+
+
+
+🎯 Easy Example
+If you launch:
+Ubuntu EC2
+With 20 GB storage
+Then your cloud computer will have:
+Ubuntu OS
+20 GB hard disk space
+
+
+
+📌 Easy Way to Remember
+EC2 = Computer
+EBS = Hard disk
+Configure Storage = Choose disk size & type
+
+
+
+Free Storage Included
+30 GB of EBS storage
+
+
+

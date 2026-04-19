@@ -1,0 +1,9 @@
+How to host a static website using S3 in AWS?
+
+How to deploy a Node.js app on AWS EC2 with NGINX?
+
+How to launch an EC2 instance and attach an EBS volume in AWS?
+
+How to practically host a React website using NGINX and Git?
+
+

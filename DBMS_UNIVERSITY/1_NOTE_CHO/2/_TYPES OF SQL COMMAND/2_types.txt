@@ -1,0 +1,13 @@
+
+
+
+# Types of SQL command : -> https://www.geeksforgeeks.org/sql/sql-ddl-dql-dml-dcl-tcl-commands/ => gfg_link
+
+
+
+
+
+
+
+
+

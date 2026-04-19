@@ -1,0 +1,403 @@
+--------------MCQs on Java Interfaces------------------
+1. Which keyword is used to define an interface in Java?
+A) class
+B) interface
+C) implements
+D) abstract
+✅ Answer: B – The interface keyword is used to declare an interface.
+
+
+
+
+
+
+
+
+
+2. What can an interface contain?
+A) Instance variables
+B) Abstract methods and constants
+C) Constructors
+D) Final classes
+✅ Answer: B – Interfaces contain abstract methods and implicitly public static final constants or variable.
+
+
+
+
+
+
+3. By default, variables declared in an interface are:
+A) public, static, final
+B) private, static, final
+C) protected, non-final
+D) package-private
+✅ Answer: A – All variables in an interface are implicitly public static final.
+
+
+
+
+
+
+
+
+
+
+
+4. Methods inside an interface are implicitly:
+A) abstract and public
+B) static and private
+C) final and protected
+D) package-private
+✅ Answer: A – All methods in an interface are implicitly public abstract.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. Which of the following can an interface NOT have?
+A) Method declarations
+B) Default methods (Java 8+)
+C) Static methods (Java 8+)
+D) Constructors
+✅ Answer: D – Interfaces cannot have constructors.
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. How does a class use an interface?
+A) By extending it
+B) By implementing it
+C) By importing it
+D) By instantiating it
+✅ Answer: B – Classes use the implements keyword to implement an interface.
+
+
+
+
+
+
+
+
+
+
+
+
+7. Which is true about interfaces in Java?
+A) A class can implement only one interface
+B) A class can implement multiple interfaces
+C) An interface can extend a class
+D) An interface must contain at least one method
+✅ Answer: B – Java supports multiple inheritance through interfaces.
+
+
+
+
+
+
+
+
+
+
+
+8. When no access modifier is specified for an interface, what is its access level?
+A) public
+B) protected
+C) default (package-private)
+D) private
+✅ Answer: C – Without public, an interface is package-private.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9. Can we instantiate an interface directly?
+A) Yes
+B) No
+C) Only if it has static methods
+D) Only if it has default methods
+✅ Answer: B – Interfaces cannot be instantiated directly.
+
+
+------------❓ Can we instantiate an interface directly?-------------------
+An interface in Java is not a concrete class – it only defines abstract methods (before Java 8), and from Java 8 onwards, it may also include default and static methods.
+Since interfaces don’t have full implementations (except for default and static methods), we cannot instantiate an interface directly using new.
+
+👉 Correct Answer: B) No
+
+✅ Explanation with Examples
+1. ❌ Direct instantiation (NOT allowed)
+interface MyInterface {
+    void show();
+}
+
+class Test {
+    public static void main(String[] args) {
+        // MyInterface obj = new MyInterface(); // ❌ Compilation Error
+    }
+}
+
+2. ✅ Instantiation via implementing class
+interface MyInterface {
+    void show();
+}
+
+class MyClass implements MyInterface {
+    public void show() {
+        System.out.println("Hello from MyClass");
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        MyInterface obj = new MyClass(); // ✅ Allowed
+        obj.show();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+10. Which of the following is correct about implementing multiple interfaces?
+A) A class can’t implement more than one interface
+B) A class can implement multiple interfaces, but must define all their methods
+C) A class can implement multiple interfaces but only define methods of one
+D) A class can extend multiple interfaces
+✅ Answer: B – All abstract methods from all interfaces must be implemented.
+
+
+
+
+
+
+
+
+
+
+
+
+11. Which of the following is true for variables in an interface?
+A) They must be initialized
+B) They can be changed by implementing class
+C) They are private by default
+D) They are optional
+✅ Answer: A – Interface variables are constants, so they must be initialized.
+
+
+
+interface MyInterface {
+   private int VALUE = 1000; // ❌ Compilation Error
+}
+
+interface MyInterface {
+    int VALUE = 100;  // implicitly public static final
+}
+
+public class Main implements MyInterface {
+    public static void main(String[] args) {
+        System.out.println(VALUE);            // ✅ prints 100
+        System.out.println(MyInterface.VALUE); // ✅ also prints 100
+    }
+}
+
+
+
+
+
+
+12. What does “one interface, multiple methods” mean?
+A) Interfaces allow function overloading
+B) Interfaces allow polymorphism
+C) Interfaces allow constructor overloading
+D) Interfaces allow private methods
+✅ Answer: B – Interfaces are used to achieve polymorphism.
+
+
+
+
+
+
+
+
+
+13. What will happen if a class does not implement all the methods of an interface?
+A) Compile-time error
+B) Runtime exception
+C) Nothing
+D) The class becomes abstract automatically
+✅ Answer: D – The class must be declared abstract if it doesn’t implement all methods.
+
+
+
+
+
+
+
+
+
+
+
+14. Which of the following is NOT true about interfaces?
+A) Interfaces support multiple inheritance
+B) Interfaces can have abstract and default methods
+C) Interfaces can extend multiple interfaces
+D) Interfaces can extend classes
+✅ Answer: D – Interfaces cannot extend classes, only other interfaces.
+
+
+
+
+
+
+
+
+
+15. What is the output of the following?
+
+interface Callback {
+    void call(int x);
+}
+
+
+A) Compilation error
+B) Interface with one abstract method
+C) Abstract class
+D) Static class
+✅ Answer: B – This defines an interface with one abstract method.
+
+
+
+
+
+
+
+
+
+
+
+
+16. Can an interface extend another interface?
+A) No
+B) Yes, one only
+C) Yes, multiple interfaces
+D) Yes, but only abstract ones
+✅ Answer: C – An interface can extend multiple interfaces.
+
+
+
+
+
+
+
+
+
+
+17. Why can’t interfaces have constructors?
+A) Because they don’t have methods
+B) Because they can’t be instantiated
+C) Because they are abstract
+D) Because they don’t support inheritance
+✅ Answer: B – Interfaces cannot be instantiated, so constructors make no sense.
+
+
+
+
+
+
+
+
+
+
+
+
+
+18. Which of these is an advantage of interfaces?
+A) Provides multiple inheritance
+B) Allows defining state
+C) Provides direct object creation
+D) Increases performance
+✅ Answer: A – Interfaces provide multiple inheritance in Java.
+
+
+
+
+
+
+
+
+
+
+
+
+
+19. What is true about interface methods introduced in Java 8?
+A) Interfaces cannot have method implementations
+B) Interfaces can have default and static methods
+C) Interfaces can have private methods only
+D) Interfaces must be abstract
+✅ Answer: B – Since Java 8, interfaces can have default and static methods.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+20. Which of the following can implement an interface?
+A) A class
+B) An abstract class
+C) Another interface (by extending)
+D) All of the above
+✅ Answer: D – All of them can either implement or extend an interface.
+
+
+
+
+
+

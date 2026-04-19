@@ -1,0 +1,110 @@
+
+
+1. What is Instance Type in EC2?
+- In Amazon EC2, an Instance Type defines the hardware configuration of the virtual machine.
+
+Simple Definition
+Instance Type decides how much:
+CPU (processor power)
+RAM (memory)
+Storage
+Network performance
+
+your EC2 computer will have.
+
+
+
+
+
+Think of it like this:
+EC2 = Cloud computer
+Instance Type = Size and power of that computer
+What Does an Instance Type Include?
+
+
+
+
+
+An instance type defines:
+CPU (Number of vCPUs)
+RAM (Memory size)
+Storage type
+Network performance
+
+
+
+
+
+
+Categories of Instance Types
+1. General Purpose
+Balanced CPU and RAM.
+
+Used for:
+Web servers
+Small applications
+Testing
+
+
+Example: t2.micro, t3.medium
+
+
+
+
+2. Compute Optimized
+
+More CPU power.
+Used for:
+High-performance apps
+Data processing
+Gaming servers
+
+
+Example: c5.large
+
+
+
+3. Memory Optimized
+
+More RAM.
+Used for:
+Databases
+Big data
+Caching
+
+
+Example: r5.large
+
+
+
+
+
+4. Storage Optimized
+
+High disk performance.
+Used for:
+Large databases
+Log processing
+
+
+Example: i3.large
+
+
+
+Easy Way to Remember
+AMI = OS template
+EC2 = Cloud computer
+Instance Type = Computer size & power
+EBS = Hard disk
+Security Group = Firewall
+
+
+
+
+
+
+
+
+
+
+

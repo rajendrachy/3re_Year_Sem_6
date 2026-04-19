@@ -1,0 +1,59 @@
+
+
+
+
+🔑 SSH in EC2
+SSH (Secure Shell) is a protocol used to securely connect to your Amazon EC2 instance from your local computer.
+
+
+
+🧠 Simple Definition
+SSH allows you to log in and manage your EC2 server securely over the internet.
+Instead of a username/password, AWS uses Key Pairs (.pem files) for authentication.
+
+
+
+
+📌 How SSH Works with EC2
+Launch EC2 and download the .pem file (private key).
+Open terminal (Linux/macOS) or use PuTTY (Windows).
+
+
+Run SSH command:
+ssh -i mykey.pem ec2-user@public-ip
+
+mykey.pem → Your private key file
+ec2-user → Default username for Linux AMI
+
+
+public-ip → Public IP or Elastic IP of your EC2
+
+
+
+
+
+🔐 Why SSH Is Important
+Provides encrypted connection.
+Lets you run commands on the EC2 instance.
+Used for managing files, applications, and servers.
+Much safer than normal passwords.
+
+
+
+
+
+⚡ Tips
+Keep your .pem file safe.
+Set proper Security Group rules (allow port 22 inbound).
+For Windows EC2, use RDP instead of SSH.
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+
+What is Key Pair in EC2?
+In Amazon EC2, a Key Pair is used to securely connect to your EC2 instance.
+
+
+
+🔐 Simple Definition
+Key Pair is like a password for your EC2 server, but more secure.
+Instead of using a normal password, AWS uses two keys for security.
+
+
+
+
+🔑 Types of Keys
+A Key Pair contains:
+
+1️⃣ Public Key
+Stored inside the EC2 instance.
+AWS automatically places it on the server.
+
+
+
+2️⃣ Private Key
+Downloaded by the user (.pem file).
+Must be kept safe.
+Used to connect to the EC2 instance.
+
+👉 If you lose the private key, you cannot access the instance easily.
+
+
+
+
+
+💻 Why Key Pair is Important?
+Used to connect to Linux EC2 via SSH.
+Provides secure access.
+Replaces traditional passwords.
+Protects the server from unauthorized access.
+
+
+🧠 Example
+When launching an EC2 instance:
+AWS asks you to create or select a Key Pair.
+You download the .pem file.
+You use that file to log in to the server.
+
+
+
+
+
+🎯 Easy Way to Remember
+EC2 = Cloud computer
+Key Pair = Login key
+Private Key = Your secret password file
+Public Key = Stored inside server
+
+
+
+
+
+
+

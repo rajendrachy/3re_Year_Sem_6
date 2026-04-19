@@ -1,0 +1,5 @@
+
+var myName : string = "Rajendra";
+
+
+

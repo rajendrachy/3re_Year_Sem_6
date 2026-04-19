@@ -1,0 +1,8 @@
+
+
+
+Q. Explain how to configure Auto Scaling for EC2 instances in AWS with a Load Balancer. Provide step-by-step procedure.
+
+
+
+

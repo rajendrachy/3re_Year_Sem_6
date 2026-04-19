@@ -1,0 +1,14 @@
+
+
+
+
+
+# CI/CD Pipeline with Jenkins, GitHub, Webhook & AWS EC2 for Next.js Deployment : -> https://youtu.be/h7bkKFAZWLw?si=ASC9ZJ9cb0q9SPQS => yt_link
+
+
+
+
+
+
+
+

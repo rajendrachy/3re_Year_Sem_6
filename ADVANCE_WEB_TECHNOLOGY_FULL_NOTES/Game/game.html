@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unlimited Up Movement Game</title>
+<style>
+  body {
+    margin: 0;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  canvas {
+    background: #eee;
+    border: 3px solid black;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = 1000;
+canvas.height = 800;
+
+const GRAVITY = 0.6;
+const FLOOR = canvas.height;
+const CEILING = 0;
+
+let player = {
+  x: 100,
+  y: FLOOR - 70,
+  w: 50,
+  h: 70,
+  vx: 0,
+  vy: 0,
+  speed: 4
+};
+
+let obstacles = [];
+let nextX = 400;
+
+function createObstacle() {
+  obstacles.push({
+    x: nextX,
+    y: Math.random() * 400 + 200,
+    w: 180,
+    h: 20
+  });
+  nextX += 300;
+}
+
+for (let i = 0; i < 4; i++) createObstacle();
+
+function update() {
+
+  player.vy += GRAVITY;
+
+  player.x += player.vx;
+  player.y += player.vy;
+
+  if (player.y + player.h >= FLOOR) {
+    player.y = FLOOR - player.h;
+    player.vy = 0;
+  }
+
+  if (player.y <= CEILING) {
+    player.y = CEILING;
+    player.vy = 0;
+  }
+
+  obstacles.forEach(o => {
+    if (
+      player.x < o.x + o.w &&
+      player.x + player.w > o.x &&
+      player.y + player.h >= o.y &&
+      player.y + player.h <= o.y + o.h &&
+      player.vy >= 0
+    ) {
+      player.y = o.y - player.h;
+      player.vy = 0;
+    }
+  });
+
+  if (player.x + canvas.width > nextX) {
+    createObstacle();
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.save();
+  ctx.translate(-player.x + 150, 0);
+
+  ctx.fillStyle = "red";
+  obstacles.forEach(o => {
+    ctx.fillRect(o.x, o.y, o.w, o.h);
+  });
+
+  ctx.fillStyle = "blue";
+  ctx.fillRect(player.x, player.y, player.w, player.h);
+
+  ctx.restore();
+}
+
+
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+loop();
+
+window.addEventListener("keydown", e => {
+
+  if (e.key === "ArrowUp") {
+    player.vy -= 8; 
+  }
+
+  if (e.key === "ArrowRight") player.vx = player.speed;
+  if (e.key === "ArrowLeft") player.vx = -player.speed;
+
+});
+
+window.addEventListener("keyup", e => {
+  if (e.key === "ArrowRight" || e.key === "ArrowLeft")
+    player.vx = 0;
+});
+</script>
+
+</body>
+</html>

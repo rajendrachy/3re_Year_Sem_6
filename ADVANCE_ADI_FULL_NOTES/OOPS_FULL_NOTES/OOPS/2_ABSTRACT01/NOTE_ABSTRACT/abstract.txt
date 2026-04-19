@@ -1,0 +1,57 @@
+-------------------Key points:-----------------------
+Use the abstract keyword to declare an abstract class.
+Abstract classes can have constructors, fields, and methods (abstract or concrete).
+
+
+---------------Abstract classes cannot be instantiated directly means you cannot create an object of an abstract class using the new keyword.----------------
+For example, this is not allowed:
+abstract class Animal { }
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal(); // Error: Cannot instantiate the type Animal
+    }
+}
+
+
+
+
+
+
+------------You must create a subclass that extends the abstract class, and then instantiate the subclass:--------
+class Dog extends Animal { }
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Allowed
+    }
+}
+
+
+
+
+
+
+-------------If an abstract class has abstract methods (methods without a body), the first subclass that is not abstract (called a concrete subclass) must provide implementations for all those abstract methods.-------
+
+Example:
+abstract class Animal {
+    abstract void makeSound(); // Abstract method
+}
+
+
+
+// Abstract subclass - does NOT need to implement makeSound yet
+abstract class Pet extends Animal { }
+
+// Concrete subclass - MUST implement makeSound
+class Dog extends Pet { // This is concrete class
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+Summary:
+The first non-abstract (concrete) subclass in the inheritance chain is responsible for writing the code for all inherited abstract methods.
+
+

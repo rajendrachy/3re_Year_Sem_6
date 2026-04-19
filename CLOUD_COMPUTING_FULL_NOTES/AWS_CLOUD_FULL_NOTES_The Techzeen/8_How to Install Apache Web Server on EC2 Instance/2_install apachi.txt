@@ -1,0 +1,165 @@
+
+
+---------------------------------------------------------------------------------------------------------------------------
+🖥 How to Install Apache Web Server on EC2
+---------------------------------------------------------------------------------------------------------------------------
+This guide assumes you have already launched an EC2 instance and can SSH into it.
+
+
+
+
+
+✅Step 1: Connect to Your EC2 Instance
+Open PowerShell / Windows Terminal (Windows) or terminal (Linux/macOS).
+
+
+Connect via SSH:
+ssh -i mykey.pem ec2-user@<public-ip>
+
+
+
+Replace mykey.pem with your key file.
+Replace <public-ip> with your EC2 public IP.
+For Ubuntu AMI, the username is ubuntu.
+For Amazon Linux, the username is ec2-user.
+
+
+
+
+✅Step 2: Update the Package Repository
+Always update packages before installing:
+
+Amazon Linux / Amazon Linux 2 / CentOS:
+sudo yum update -y
+
+Ubuntu / Debian:
+sudo apt update -y
+sudo apt upgrade -y
+
+
+
+✅Step 3: Install Apache Web Server
+Amazon Linux / CentOS:
+sudo yum install httpd -y
+
+Ubuntu / Debian:
+sudo apt install apache2 -y
+
+
+
+✅Step 4: Start Apache Service
+Amazon Linux / CentOS:
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+
+Ubuntu / Debian:
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+
+
+start → starts Apache immediately
+enable → ensures Apache starts automatically after reboot
+
+
+
+✅Step 5: Adjust Security Group
+Go to AWS Console → EC2 → Security Groups.
+
+
+Edit Inbound Rules:
+Allow HTTP (port 80) from Anywhere (0.0.0.0/0)
+
+Optional: Allow HTTPS (port 443) if needed
+
+
+
+✅Step 6: Verify Installation
+Open your browser.
+Type the public IP of your EC2 instance.
+
+You should see the Apache default page (“Apache HTTP Server Test Page”).
+
+
+
+
+
+✅Step 7: Manage Apache Service
+Restart Apache:
+
+sudo systemctl restart httpd       # Amazon Linux / CentOS
+sudo systemctl restart apache2     # Ubuntu
+
+
+
+
+Check status:
+sudo systemctl status httpd       # Amazon Linux / CentOS
+sudo systemctl status apache2     # Ubuntu
+
+
+
+
+Stop Apache:
+sudo systemctl stop httpd
+sudo systemctl stop apache2
+
+
+
+
+✅ Step 8: Optional – Test Your Web Page
+Navigate to Apache root directory:
+
+cd /var/www/html
+
+
+
+
+
+Create a test HTML file:
+echo "<h1>Hello from EC2 Apache Server!</h1>" > index.html
+
+
+✅ What is echo?
+echo prints text or variables to the terminal.
+Often used to create files, display messages, or pass content to other commands.
+
+
+
+
+
+Refresh your browser → You should see your custom message.
+
+
+
+🎯 Summary
+Update packages → Install Apache → Start and enable service → Open port 80 → Verify in browser.
+Default website folder: /var/www/html
+Security group must allow HTTP traffic.
+
+
+
+
+
+
+
+
+
+🔹 What is -y?
+The -y flag automatically answers "yes" to all prompts during a package operation.
+Without -y, the system will pause and ask for confirmation before installing, updating, or upgrading packages.
+
+- Useful for scripts or automation (like User Data scripts in EC2).
+
+
+
+
+✅ What is enable in Linux?
+enable tells the system to start a service automatically at boot (every time the server restarts).
+It does not start the service immediately — that’s what start is for.
+Typically used with services like Apache (httpd or apache2), MySQL, etc.
+After enabling, Apache will automatically start after a system reboot.
+
+
+

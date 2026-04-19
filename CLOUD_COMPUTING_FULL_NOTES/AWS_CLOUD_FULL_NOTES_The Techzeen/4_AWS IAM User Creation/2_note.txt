@@ -1,0 +1,101 @@
+
+
+Video: AWS IAM User Creation & AWS CLI Configuration
+(DevOps Tutorial #62 – AWS IAM & CLI setup)
+
+
+
+
+📝 Notes: AWS IAM User & AWS CLI Configuration
+1) Introduction
+The video explains how to create an IAM user in AWS and configure the AWS CLI for that user.
+It focuses on security and access control rather than using the root account.
+
+
+
+
+
+2) Why IAM Is Important
+IAM (Identity and Access Management) lets you manage who can access AWS and what they can do.
+Instead of giving everyone root access (which is unsafe), you create IAM users and assign specific permissions.
+This is especially useful in team projects where developers need controlled access.
+
+
+
+
+
+
+3) Creating an IAM User
+✔ Go to IAM Dashboard in AWS.
+✔ Click to create a new IAM user.
+✔ You can use a mix of letters, numbers, and special characters in the username.
+✔ Choose whether to auto-generate a password or set a custom password.
+✔ If auto-generated, the user will be required to change the password at first login.
+
+
+
+
+
+
+4) Assigning Permissions
+After creating the user, you need to attach permissions policies.
+For broad control, you can give Administrator Access.
+Permissions determine what AWS services and actions the user can run.
+Always keep credentials private and secure.
+
+
+
+
+
+
+5) Generating Access Keys
+To use the AWS CLI with an IAM user, you must generate IAM access keys (Access Key ID + Secret Access Key).
+These keys allow the user to authenticate with AWS via the CLI.
+You can download a CSV file with these keys for later use.
+
+
+
+
+
+6) Configuring AWS CLI
+Open PowerShell or terminal (with admin privileges).
+Run the command:
+aws configure
+Enter:
+Access Key ID
+Secret Access Key
+Default region (e.g., ap-south-1 for Mumbai region)
+Default output format (e.g., json)
+This saves your credentials in the CLI config files.
+
+
+
+
+
+7) Testing Configuration
+After configuration, run a CLI command (e.g., aws iam list-users or aws s3 ls) to make sure the CLI is working correctly with your IAM user.
+If there’s an error, recheck the credentials and region settings.
+
+
+
+
+
+
+8) Key Takeaways
+IAM lets you securely manage AWS access without using the root account.
+AWS CLI helps you execute AWS commands from the terminal after configuration.
+Using IAM keys with CLI enables you to automate tasks and work in scripts.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

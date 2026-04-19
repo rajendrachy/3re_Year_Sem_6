@@ -1,0 +1,7 @@
+
+1. How to create a Custom AMI with Ubuntu OS and Nginx installed in AWS? Explain step by step.
+2. Q. How can we create and attach an Elastic IP to an EC2 instance in AWS? Explain step by step.
+How to Allocate an Elastic IP (EIP) in AWS.
+
+
+

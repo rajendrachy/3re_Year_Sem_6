@@ -1,0 +1,12 @@
+
+
+# Generate a tsconfig file : -> tsc --init
+
+
+
+
+Make a outDir = ./dist then run tsc in the terminal then we get dist folder with .js file
+
+
+
+

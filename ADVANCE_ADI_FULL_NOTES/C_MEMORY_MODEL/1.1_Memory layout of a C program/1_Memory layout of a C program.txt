@@ -1,0 +1,23 @@
+
+
+
+
+
+
+# Memory layout of a C program : -> https://youtu.be/PeohtAsvtHg?si=HGJSLEbn0oS7cMzH => yt_link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
