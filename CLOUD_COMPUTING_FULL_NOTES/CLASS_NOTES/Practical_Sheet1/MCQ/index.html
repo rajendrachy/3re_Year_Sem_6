@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloud Computing & VPC Master Quiz</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background-color: #f4f7f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #232f3e; border-bottom: 3px solid #ff9900; padding-bottom: 10px; }
+        h2 { background: #232f3e; color: white; padding: 10px; border-radius: 5px; margin-top: 40px; }
+        .q-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #ff9900; background: #fafafa; }
+        .q-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .options { list-style: none; padding: 0; }
+        .option { padding: 8px; border: 1px solid #ddd; margin: 5px 0; border-radius: 4px; }
+        .ans-box { margin-top: 10px; padding: 10px; background: #e7f3fe; border-radius: 4px; border: 1px solid #bde0fe; }
+        .correct { color: #2e7d32; font-weight: bold; }
+        .reason { font-style: italic; color: #555; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>150 Cloud Computing MCQs</h1>
+
+    <h2>Part 1: AWS VPC (50 Questions)</h2>
+
+    <div class="q-block">
+        <p class="q-text">1. What is a VPC?</p>
+        <div class="options">A) A public cloud B) Your own private network inside AWS C) A hardware firewall D) A physical storage device</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: VPC stands for Virtual Private Cloud, which is your logically isolated private network in AWS[cite: 3, 4].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">2. Which component allows VPC resources to communicate with the internet?</p>
+        <div class="options">A) NACL B) Route Table C) Internet Gateway (IGW) D) NAT Gateway</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: An Internet Gateway (IGW) is the VPC component that allows communication between your VPC and the Internet[cite: 38].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">3. CIDR stands for:</p>
+        <div class="options">A) Classless Inter-Domain Routing B) Cloud Internal Data Route C) Core Internet Digital Routing D) Computer IP Data Range</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: CIDR is a notation used to represent a range of IP addresses[cite: 14].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">4. Which of these is a private CIDR range?</p>
+        <div class="options">A) 10.0.0.0/8 B) 8.8.8.8/32 C) 172.0.0.0/8 D) 192.1.1.0/24</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: 10.0.0.0/8 is a standard private network range[cite: 24].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">5. What is a "Public Subnet"?</p>
+        <div class="options">A) A subnet with no route table B) A subnet that can communicate with the internet C) A subnet for AWS employees only D) A subnet with no security groups</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A public subnet is defined by its ability to communicate with the internet[cite: 34].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">6. Security Groups are ______.</p>
+        <div class="options">A) Stateless B) Instance-level firewalls C) Subnet-level firewalls D) Global rules</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A Security Group is a virtual firewall attached to an EC2 instance[cite: 56, 59].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">7. Security Groups are ______ in nature.</p>
+        <div class="options">A) Stateless B) Stateful C) Both D) Neither</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Security groups are stateful, meaning they automatically allow response traffic[cite: 60, 62].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">8. NACLs (Network ACLs) work at which level?</p>
+        <div class="options">A) Instance B) Subnet C) VPC D) Region</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A Network ACL is a firewall attached to a subnet[cite: 64, 67].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">9. NACLs are ______ firewalls.</p>
+        <div class="options">A) Stateful B) Stateless C) Inbound-only D) Outbound-only</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Network ACLs are stateless, requiring rules for both directions[cite: 68, 70].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">10. What allows a private subnet instance to access the internet for updates while blocking incoming traffic?</p>
+        <div class="options">A) Internet Gateway B) NAT Gateway C) Route Table D) NACL</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A NAT Gateway allows private instances to access the internet but prevents direct external access[cite: 50].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">11. A route table consists of ______.</p>
+        <div class="options">A) Rules to direct traffic B) Only IP addresses C) Only MAC addresses D) Passwords</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: A Route Table is a set of rules that determines where network traffic is directed[cite: 43].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">12. In a route table, "Destination" refers to:</p>
+        <div class="options">A) The gateway B) The IP address range C) The EC2 ID D) The VPC name</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Each route contains a Destination, which is an IP address range[cite: 46, 47].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">13. Which private CIDR range is 172.16.0.0/12?</p>
+        <div class="options">A) 10.0.0.0 range B) 172.16.0.0 – 172.31.255.255 C) 192.168 range D) Global range</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: This specific range corresponds to the /12 CIDR prefix[cite: 25, 26].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">14. Security Groups support which type of rules?</p>
+        <div class="options">A) Only Allow B) Only Deny C) Both Allow and Deny D) Neither</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Security Groups support "Only Allow" rules[cite: 61].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">15. NACLs support which type of rules?</p>
+        <div class="options">A) Only Allow B) Only Deny C) Both Allow and Deny D) Static only</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: NACLs support both Allow and Deny rules[cite: 69].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">16. What is the standard notation for CIDR?</p>
+        <div class="options">A) IP/Mask B) IP/Prefix Length C) IP+Prefix D) IP-Length</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reasoning">Reason: CIDR format is IP Address / Prefix Length[cite: 16].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">17. A subnet is a ______ network inside a VPC.</p>
+        <div class="options">A) Larger B) Smaller C) Physical D) Global</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A Subnet (Subnetwork) is defined as a smaller network inside a VPC[cite: 30].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">18. What is the use case for a NAT Gateway?</p>
+        <div class="options">A) Hosting websites B) Downloading updates C) Encrypting traffic D) Assigning IP addresses</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: NAT Gateways are used by private instances to download updates[cite: 52].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">19. In a route table, "Target" is ______.</p>
+        <div class="options">A) Where traffic should go B) The origin of traffic C) The CIDR block D) The subnet ID</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Target indicates where the traffic should be directed[cite: 48].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">20. Every VPC must have a ______ block.</p>
+        <div class="options">A) NACL B) CIDR C) NAT D) RDS</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: CIDR block (IP range) is a main component of a VPC[cite: 6].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">21. Without an IGW, can your VPC access the internet?</p>
+        <div class="options">A) Yes B) No C) Only on weekends D) Only with a NAT Gateway</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Without an Internet Gateway, your VPC cannot access the internet[cite: 41].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">22. Security groups work at the ______ level.</p>
+        <div class="options">A) Subnet B) VPC C) Instance D) Global</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Security groups control traffic to individual instances[cite: 59].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">23. NACLs work at the ______ level.</p>
+        <div class="options">A) Instance B) Subnet C) Application D) Hardware</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: NACLs control traffic for the entire subnet[cite: 67].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">24. Private subnets ______ be accessed directly from the internet.</p>
+        <div class="options">A) Can B) Cannot C) Can only if public D) Must</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A private subnet cannot be accessed directly from the internet[cite: 36].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">25. What does IGW stand for?</p>
+        <div class="options">A) Internet Gateway B) Internal Gateway C) Input Gateway D) Integrated Gateway</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: IGW is short for Internet Gateway[cite: 37].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">26. Which CIDR is an example of /24?</p>
+        <div class="options">A) 10.0.0.0/8 B) 192.168.1.0/24 C) 172.16.0.0/12 D) 192.168.0.0/16</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: This is a provided example of the /24 notation[cite: 18].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">27. "Stateful" means the firewall ______.</p>
+        <div class="options">A) Blocks all traffic B) Remembers the state of a connection C) Is very slow D) Only works for US states</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Stateful firewalls automatically allow response traffic once the initial connection is allowed[cite: 62].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">28. Which component is NOT listed in the main VPC components?</p>
+        <ul class="options"><li>A) Subnets</li><li>B) S3 Bucket</li><li>C) Route Table</li><li>D) NACL</li></ul>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: S3 is an external service, not a main structural component of a VPC [cite: 5-12].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">29. What is the private CIDR for 192.168.0.0 – 192.168.255.255?</p>
+        <div class="options">A) /8 B) /12 C) /16 D) /32</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: This range corresponds to the /16 prefix[cite: 28].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">30. Can a private instance install packages via NAT Gateway?</p>
+        <div class="options">A) Yes B) No C) Only manually D) Only if public</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Installing packages is a listed use case for NAT Gateway[cite: 54].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">31. NACLs are ______ by default.</p>
+        <div class="options">A) Allowed B) Blocked C) Stateless D) Stateful</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: NACLs are stateless[cite: 68].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">32. Which component is used to direct traffic in a VPC?</p>
+        <div class="options">A) EC2 B) Subnet C) Route Table D) IGW</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Route tables determine where network traffic is directed[cite: 43].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">33. CIDR /8 covers which IP range?</p>
+        <div class="options">A) 10.x.x.x B) 192.x.x.x C) 172.x.x.x D) 8.x.x.x</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: /8 corresponds to the 10.0.0.0 – 10.255.255.255 range[cite: 23, 24].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">34. A public subnet ______ an Internet Gateway in its route table.</p>
+        <div class="options">A) Must have B) Must not have C) May have D) Ignore</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Public subnets communicate with the internet via an IGW in the route table[cite: 40].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">35. Which firewall supports "Deny" rules?</p>
+        <div class="options">A) Security Group B) NACL C) Route Table D) NAT</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: NACLs support both Allow and Deny rules[cite: 69].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">36. "Stateless" means you must configure ______ rules.</p>
+        <div class="options">A) Only inbound B) Only outbound C) Both inbound and outbound D) Neither</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Stateless NACLs require configuration of both inbound and outbound rules[cite: 70].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">37. VPC stands for:</p>
+        <div class="options">A) Virtual Personal Cloud B) Virtual Private Cloud C) Verified Private Cloud D) Virtual Private Connection</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Full name provided as Virtual Private Cloud[cite: 2].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">38. A subnet can be of ______ types.</p>
+        <div class="options">A) 1 B) 2 C) 3 D) 4</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Subnets are classified as Public or Private[cite: 32, 33, 35].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">39. NAT stands for:</p>
+        <div class="options">A) Network Address Translation B) Network Access Tool C) New Address Type D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Full name provided as Network Address Translation[cite: 50].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">40. Security Groups are attached to ______.</p>
+        <div class="options">A) Subnets B) EC2 Instances C) VPCs D) Regions</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Security groups are attached at the instance level[cite: 56].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">41. NACLs are attached to ______.</p>
+        <div class="options">A) Subnets B) Instances C) CIDRs D) Routes</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: NACLs are firewalls attached to subnets[cite: 64].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">42. Can a private subnet access external APIs via NAT Gateway?</p>
+        <div class="options">A) Yes B) No C) Only via IGW D) Only if encrypted</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Accessing external APIs is a listed use case for NAT Gateway[cite: 53].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">43. Prefix length is used in ______ notation.</p>
+        <div class="options">A) DNS B) CIDR C) HTTP D) SQL</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: CIDR uses IP and prefix length[cite: 14].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">44. A VPC is logically ______.</p>
+        <div class="options">A) Connected B) Isolated C) Distributed D) Global</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A VPC is a logically isolated virtual network[cite: 4].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">45. Which of these is NOT a private IP range?</p>
+        <div class="options">A) 10.0.0.0/8 B) 172.16.0.0/12 C) 192.168.0.0/16 D) 8.8.8.8/32</div>
+        <div class="ans-box">
+            <span class="correct">Answer: D</span>
+            <span class="reason">Reason: Standard private ranges provided exclude the public 8.8.8.8 range [cite: 23-28].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">46. Route tables control ______.</p>
+        <div class="options">A) Traffic direction B) Data storage C) User passwords D) Server power</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Route tables determine where network traffic is directed[cite: 43].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">47. "Destination" in a route is an ______ range.</p>
+        <div class="options">A) IP B) MAC C) User D) Hardware</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Destination is defined as an IP address range[cite: 47].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">48. Security groups are ______ firewalls.</p>
+        <div class="options">A) Real B) Virtual C) Hardware D) Manual</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: A Security Group is a virtual firewall[cite: 56].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">49. Subnets help ______ resources.</p>
+        <div class="options">A) Delete B) Organize and control C) Move D) Hide</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Subnets help organize and control resources like EC2 inside a VPC[cite: 31].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">50. IGW stands for ______ Gateway.</p>
+        <div class="options">A) Internal B) Internet C) Isolated D) Integrated</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Full name provided is Internet Gateway[cite: 37].</span>
+        </div>
+    </div>
+
+    <h2>Part 2: Cloud Data Lifecycle (50 Questions)</h2>
+
+    <div class="q-block">
+        <p class="q-text">51. What is the correct lifecycle flow?</p>
+        <div class="options">A) Create -> Use -> Delete B) Create -> Classify -> Store -> Process -> Use -> Share -> Archive -> Retain -> Delete C) Store -> Use -> Share D) Ingest -> Process -> Delete</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: This is the full documented flow for managing cloud data[cite: 73].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">52. Which phase involves moving inactive data to low-cost storage?</p>
+        <div class="options">A) Sharing B) Retention C) Archival D) Classification</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Data Archival is the process of moving inactive data to low-cost storage[cite: 163].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">53. Categorizing data based on sensitivity is ______.</p>
+        <div class="options">A) Ingestion B) Classification C) Sharing D) Storage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Data Classification is defined as categorizing data based on sensitivity[cite: 98, 99].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">54. Which is NOT a data classification type listed?</p>
+        <div class="options">A) Public B) Confidential C) Global D) Restricted</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Listed types are Public, Internal, Confidential, and Restricted [cite: 100-104].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">55. Data Creation is also known as ______.</p>
+        <div class="options">A) Deletion B) Ingestion C) Archiving D) Usage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Step 1 is listed as Data Creation / Ingestion[cite: 83].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">56. Which is a method of permanent data removal?</p>
+        <div class="options">A) Archival B) Cryptographic erasure C) Retention D) Storage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Cryptographic erasure is a listed method for permanent data removal[cite: 186].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">57. Keeping data for a required duration is ______.</p>
+        <div class="options">A) Retention B) Storage C) Archival D) Processing</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Data Retention is defined as keeping data for a required duration[cite: 172, 173].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">58. Which phase transforms raw data into useful information?</p>
+        <div class="options">A) Storage B) Usage C) Processing D) Creation</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: The purpose of processing is to transform raw data into useful information[cite: 123, 124].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">59. Sharing methods include ______.</p>
+        <div class="options">A) APIs and Data lakes B) Deletion C) Classification D) Archival</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: APIs and Data lakes are listed as methods for data sharing [cite: 149-152].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">60. Financial data is often retained for ______ years.</p>
+        <div class="options">A) 1 B) 5 C) 7 D) 10</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Seven years is provided as a typical retention period for financial data[cite: 180].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">61. Logs are often retained for ______ days.</p>
+        <div class="options">A) 30 B) 60 C) 90 D) 365</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Ninety days is given as an example for log retention[cite: 179].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">62. Which is a data storage design principle?</p>
+        <div class="options">A) Costly B) Durability C) Unsecured D) Temporary</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Durability, availability, and redundancy are key design principles [cite: 117-119].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">63. Sharing risks include ______.</p>
+        <div class="options">A) Data quality B) Data leakage C) Better insights D) Cost reduction</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Data leakage and shadow access are listed as risks of sharing [cite: 154-157].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">64. Which storage model is listed?</p>
+        <div class="options">A) Memory stick B) Object storage C) Tape drive D) Paper files</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Object storage is a primary storage model mentioned[cite: 112].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">65. Access controls include ______.</p>
+        <div class="options">A) Encryption and IAM B) Deletion C) Sharing D) Creation</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: IAM, RBAC, and Encryption are listed as access controls [cite: 142-145].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">66. Creation focus includes ______.</p>
+        <div class="options">A) Data quality B) Archival C) Retention D) Deletion</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Data quality and integrity are key focuses during creation [cite: 92-96].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">67. Archival use cases include ______ records.</p>
+        <div class="options">A) Current B) Historical C) Temporary D) Public</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Historical records and legal archives are use cases for archival [cite: 164-166].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">68. Archival benefits include ______ reduction.</p>
+        <div class="options">A) Risk B) Cost C) Speed D) Data</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Moving data to low-cost storage reduces costs[cite: 168, 169].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">69. Data processing outcomes include ______ data.</p>
+        <div class="options">A) Raw B) Structured C) Deleted D) Public</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Structured and clean data are outcomes of processing [cite: 131-133].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">70. "Ingestion Layer" is part of ______.</p>
+        <div class="options">A) VPC B) Cloud Data Lifecycle Architecture C) EC2 D) Route Table</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Ingestion is the first layer of the architecture view[cite: 192, 194].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">71. "Governance Layer" ensures ______.</p>
+        <div class="options">A) Speed B) Compliant data management C) More data D) Hardware power</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Governance and architecture layers ensure secure and compliant operations[cite: 198, 204, 206].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">72. Which is a data source for ingestion?</p>
+        <div class="options">A) Secure deletion B) IoT devices C) Archival tools D) Retention policies</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: IoT devices and APIs are common sources of data generation[cite: 85, 88].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">73. Classification is based on ______.</p>
+        <div class="options">A) Speed B) Sensitivity C) Cost D) Volume</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Data is categorized according to its level of sensitivity[cite: 99].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">74. Why is classification important?</p>
+        <div class="options">A) To make data public B) For access control C) To delete data D) To increase cost</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It helps determine security policies and access controls [cite: 105-107].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">75. "Block storage" is a ______ model.</p>
+        <div class="options">A) Sharing B) Storage C) Processing D) Retention</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Block storage is listed as a storage model[cite: 113].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">76. Processing includes ______ processing.</p>
+        <div class="options">A) Batch and Stream B) Paper C) Manual D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Batch and stream processing are methods used[cite: 127, 128].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">77. Data consumers include ______.</p>
+        <div class="options">A) APIs and AI systems B) Erasure tools C) Retention rules D) Schema designers</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Dashboards, reports, and AI systems consume data [cite: 136-141].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">78. "Trust boundaries" are part of ______.</p>
+        <div class="options">A) Creation B) Sharing controls C) Storage D) Processing</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Trust boundaries are controls for sharing and distribution[cite: 158, 159].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">79. Retention drivers include ______.</p>
+        <div class="options">A) Speed B) Legal policies C) Storage capacity D) Data volume</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Legal, regulatory, and business needs drive retention requirements [cite: 174-177].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">80. Lifecycle Step 9 is ______.</p>
+        <div class="options">A) Sharing B) Retention C) Deletion / Destruction D) Usage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: The final stage is permanent removal[cite: 181, 183].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">81. "Replication" is a ______ principle.</p>
+        <div class="options">A) Deletion B) Storage design C) Creation D) Sharing</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Replication and geo-distribution ensure availability and durability[cite: 116, 120].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">82. Processing Layer outcomes include ______.</p>
+        <div class="options">A) Clean data B) Deleted data C) Expensive data D) Manual data</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Processing results in clean and structured data[cite: 132, 133].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">83. "Audit logs" are part of ______.</p>
+        <div class="options">A) Data Ingestion B) Usage Controls C) Data Storage D) Archival</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Monitoring and audit logs are usage controls[cite: 146, 147].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">84. Shadow access is a ______ risk.</p>
+        <div class="options">A) Storage B) Sharing C) Processing D) Ingestion</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Shadow access is listed as a sharing risk[cite: 157].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">85. Archival moves ______ data.</p>
+        <div class="options">A) Hot B) Inactive C) New D) Deleted</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Archival is for data that is no longer active[cite: 163].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">86. "Regulator rules" drive ______.</p>
+        <div class="options">A) Storage B) Retention C) Ingestion D) Processing</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Compliance and regulatory rules dictate how long data is kept[cite: 176].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">87. Destruction purpose includes ______.</p>
+        <div class="options">A) Security B) Privacy and Risk reduction C) More data D) Cost increase</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Deletion helps with privacy and reduces risk[cite: 190, 191].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">88. "Access Layer" is part of ______.</p>
+        <div class="options">A) VPC B) Cloud Data Lifecycle Architecture C) RDS D) Route Table</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Access is one of the architectural layers[cite: 197].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">89. Effective cloud operations require ______.</p>
+        <div class="options">A) Manual work B) Controlled data flow C) No rules D) Public access</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Lifecycle ensures controlled and secure data flow[cite: 202, 205].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">90. "Schema design" is part of ______.</p>
+        <div class="options">A) Deletion B) Data Creation / Ingestion C) Archival D) Sharing</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Focus during creation includes schema design and integrity[cite: 95].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">91. "Geo-distribution" ensures ______.</p>
+        <div class="options">A) Cost B) Availability C) Ingestion D) Deletion</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Distributing data geographically improves availability[cite: 118, 121].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">92. AI/ML training is a ______ activity.</p>
+        <div class="options">A) Storage B) Processing C) Ingestion D) Retention</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: AI/ML training is listed under processing[cite: 130].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">93. "RBAC" stands for Role-Based ______.</p>
+        <div class="options">A) Access Control B) Archival Control C) Account Control D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: RBAC is a standard access control mechanism[cite: 144].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">94. "Cross-account access" is a ______ method.</p>
+        <div class="options">A) Storage B) Sharing C) Creation D) Deletion</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Method for sharing data across different cloud accounts[cite: 151].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">95. Archiving ensures ______ retention.</p>
+        <div class="options">A) Short-term B) Long-term C) No D) Expensive</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Archival is for long-term data keeping at low cost[cite: 170].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">96. Destruction purpose includes ______.</p>
+        <div class="options">A) Compliance B) Speed C) Sharing D) Storage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Securely deleting data is necessary for compliance[cite: 189].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">97. "Processing Layer" is Layer ______.</p>
+        <div class="options">A) 1 B) 2 C) 3 D) 4</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Processing follows ingestion and storage layers[cite: 196].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">98. Lifecycle foundation for cloud ______.</p>
+        <div class="options">A) Hardware B) Governance C) Apps D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It is a foundation for cloud governance[cite: 206].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">99. Lifecycle Step 2 is ______.</p>
+        <div class="options">A) Creation B) Classification C) Storage D) Usage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Step 2 follows Data Creation[cite: 73].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">100. "Automated lifecycle rules" are for ______.</p>
+        <div class="options">A) Deletion B) Creation C) Sharing D) Processing</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Rules can automate the permanent removal of data[cite: 187].</span>
+        </div>
+    </div>
+
+    <h2>Part 3: Cloud History & Models (50 Questions)</h2>
+
+    <div class="q-block">
+        <p class="q-text">101. Who introduced mainframe timesharing in the 1950s?</p>
+        <div class="options">A) John McCarthy B) Jeff Bezos C) Bill Gates D) Steve Jobs</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: John McCarthy is credited with introducing timesharing at MIT[cite: 209, 217].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">102. Which characteristic allows users to provision resources automatically?</p>
+        <div class="options">A) Rapid elasticity B) On-demand self-service C) Resource pooling D) Multi-tenancy</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: On-demand self-service allows unilateral provisioning without provider interaction[cite: 229].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">103. In which year did AWS officially launch?</p>
+        <div class="options">A) 1999 B) 2002 C) 2006 D) 2009</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: AWS was launched in 2002 providing computing and storage[cite: 219].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">104. What does SaaS stand for?</p>
+        <div class="options">A) System as a Service B) Software as a Service C) Storage as a Service D) Service as a Software</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: SaaS is one of the three service offering models[cite: 269, 271].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">105. "Pay-as-you-go" is a ______ model.</p>
+        <div class="options">A) Local infrastructure B) Business C) Hardware D) Manual</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Cloud shifted emphasis to pay-as-you-go business models[cite: 215].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">106. Which NIST characteristic means resources are available over the network?</p>
+        <div class="options">A) Broad network access B) Measured service C) Rapid elasticity D) Multi-tenancy</div>
+        <div class="ans-box">
+            <span class="correct">Answer: A</span>
+            <span class="reason">Reason: Broad network access allows capabilities to be accessed over standard mechanisms[cite: 230].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">107. Which service model allows the user to manage the OS?</p>
+        <div class="options">A) SaaS B) PaaS C) IaaS D) SPI</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: In IaaS, the consumer has control over operating systems and storage[cite: 288].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">108. Rapid elasticity allows scaling ______.</p>
+        <div class="options">A) Only up B) Only down C) Outward and inward D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Rapid elasticity allows scaling according to demand[cite: 234].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">109. What is a disadvantage of cloud computing?</p>
+        <div class="options">A) Cost efficient B) Faster deployment C) Risk of vendor lock-in D) Remote access</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Vendor lock-in and less control are disadvantages[cite: 248, 249].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">110. A cloud used exclusively by one organization is ______.</p>
+        <div class="options">A) Public B) Private C) Community D) Hybrid</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Private cloud is provisioned for exclusive use by a single organization[cite: 256].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">111. ARPANET was by ______.</p>
+        <div class="options">A) John McCarthy B) J.C.R Licklider C) Salesforce D) Amazon</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Licklider is associated with ARPANET in 1969[cite: 209].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">112. "Elastic Compute Cloud" is ______.</p>
+        <div class="options">A) S3 B) EC2 C) VPC D) RDS</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: EC2 truly revolutionized cloud computing in 2006[cite: 220].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">113. Measured service involves ______.</p>
+        <div class="options">A) No metering B) Transparency and metering C) Free service D) Unlimited hardware</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Measured service controls resource use with metering for transparency[cite: 236, 237].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">114. Multi-tenancy means customers share ______.</p>
+        <div class="options">A) Data B) Computing resources C) Passwords D) Companies</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Multiple customers use the same resources but stay separate[cite: 238, 239].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">115. Which is NOT a deployment model?</p>
+        <div class="options">A) Public B) Hybrid C) SPI D) Community</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: SPI refers to service models (SaaS, PaaS, IaaS), not deployment[cite: 270].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">116. "Cloud bursting" is associated with ______ cloud.</p>
+        <div class="options">A) Public B) Private C) Hybrid D) Community</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Hybrid clouds enable data and app portability like cloud bursting[cite: 266].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">117. AWS GovCloud is an example of ______ cloud.</p>
+        <div class="options">A) Public B) Private C) Community D) Hybrid</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Community clouds serve specific organizations with shared concerns[cite: 265].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">118. In PaaS, the consumer has control over ______.</p>
+        <div class="options">A) Hardware B) Deployed applications C) Networking cooling D) Virtualization</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: PaaS users control their apps but not the underlying infrastructure[cite: 282].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">119. SaaS allows access via ______ client.</p>
+        <div class="options">A) Thick only B) Thin (web browser) C) Physical D) Hardware</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Applications are accessible via thin client interfaces like web browsers[cite: 277].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">120. Cloud computing offers ______ access.</p>
+        <div class="options">A) Local only B) Remote C) No D) Restricted</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It offers remote access and availability[cite: 245].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">121. Resource pooling uses a ______ model.</p>
+        <div class="options">A) Single-tenant B) Multi-tenant C) No-tenant D) Manual</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Resources are pooled to serve multiple consumers using multi-tenancy[cite: 231].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">122. Salesforce transformed software in ______.</p>
+        <div class="options">A) 1961 B) 1999 C) 2006 D) 2009</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Salesforce transformed the sector in 1999[cite: 218].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">123. Windows Azure was introduced in ______.</p>
+        <div class="options">A) 2002 B) 2006 C) 2009 D) 2012</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: Microsoft introduced Windows Azure in 2009[cite: 222].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">124. NIST defines cloud as having ______ characteristics.</p>
+        <div class="options">A) 3 B) 4 C) 5 D) 6</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: The documented characteristics are five (On-demand, Broad access, Resource pooling, Elasticity, Measured service) [cite: 228-237].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">125. Resource pooling ensures location ______.</p>
+        <div class="options">A) Dependence B) Independence C) Fixed D) Physical</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Customers generally have no knowledge of the exact location of resources[cite: 232].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">126. Rapid elasticity appears ______ to the consumer.</p>
+        <div class="options">A) Limited B) Unlimited C) Fixed D) Costly</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Capabilities often appear to be unlimited and can be appropriated in any quantity[cite: 235].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">127. Disadvantage: Less ______ over infrastructure.</p>
+        <div class="options">A) Cost B) Control C) Speed D) Access</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Cloud users have less control over underlying infrastructure[cite: 249].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">128. Public cloud exists on ______ premises.</p>
+        <div class="options">A) User B) Third-party C) Provider D) Community</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: It exists on the premises of the cloud provider[cite: 261].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">129. IaaS allows provision of ______ computing resources.</p>
+        <div class="options">A) Limited B) Fundamental C) SaaS D) No</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Consumers provision fundamental computing resources on a pay-per-use basis[cite: 287].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">130. PaaS is a ______ development framework.</p>
+        <div class="options">A) Custom B) Packaged and ready-to-run C) Physical D) Inexpensive</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It provides an operating framework for consumer-created apps[cite: 281, 283].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">131. The SPI model includes ______.</p>
+        <div class="options">A) S3, EC2, RDS B) SaaS, PaaS, IaaS C) Public, Private, Hybrid D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: SPI stands for Software-Platform-Infrastructure[cite: 270].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">132. Traditional IT manages ______.</p>
+        <div class="options">A) Nothing B) Everything (Networking to Apps) C) Only Apps D) Only Data</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: In traditional IT, you manage all layers including hardware and OS[cite: 291].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">133. Benefit: Faster ______ to market.</p>
+        <div class="options">A) Delay B) Release C) Cost D) Storage</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Cloud allows deployment within days, not months[cite: 242].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">134. Disadvantage: Unforeseen ______.</p>
+        <div class="options">A) Speed B) Costs C) Storage D) Apps</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Unexpected expenses are a listed disadvantage[cite: 252].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">135. Private cloud can be ______ premises.</p>
+        <div class="options">A) Only on B) Only off C) On or off D) Neither</div>
+        <div class="ans-box">
+            <span class="correct">Answer: C</span>
+            <span class="reason">Reason: It may exist on or off premises[cite: 257].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">136. Salesforce transformed ______.</p>
+        <div class="options">A) Hardware B) Software C) Networking D) Cooling</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Delivering apps over the internet transformed the software sector[cite: 218].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">137. Community cloud is shared by ______ organizations.</p>
+        <div class="options">A) 1 B) Several C) All D) 0</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It is shared by organizations with shared concerns[cite: 263].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">138. IaaS provider is responsible for ______.</p>
+        <div class="options">A) Data B) Cooling and Maintenance C) Apps D) OS</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: The provider owns equipment and handles cooling/maintenance[cite: 289].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">139. SaaS consumers manage ______.</p>
+        <div class="options">A) OS B) Limited application configuration C) Networking D) Servers</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Users only control limited user-specific application settings[cite: 276].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">140. Resource pooling involves physical and ______ resources.</p>
+        <div class="options">A) No B) Virtual C) Manual D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Both physical and virtual resources are dynamically assigned[cite: 231].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">141. Cloud definition is by ______.</p>
+        <div class="options">A) IEEE B) NIST C) AWS D) Google</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: The definition provided is sourced from NIST[cite: 226].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">142. Benefit: Businesses save on hardware and ______ specialists.</p>
+        <div class="options">A) Sales B) Technical C) Admin D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Costs are saved on hardware and in-house technical specialists[cite: 241].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">143. Hybrid cloud entities remain ______.</p>
+        <div class="options">A) Unified B) Unique C) Deleted D) Public</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: They remain unique entities but are bound by standardized technology[cite: 266].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">144. Disadvantage: Integration ______.</p>
+        <div class="options">A) Speed B) Complexity C) Ease D) None</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Integration complexity with existing systems is a disadvantage[cite: 251].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">145. IaaS allows provisioning on a ______ basis.</p>
+        <div class="options">A) Monthly B) Pay-per-use C) Free D) One-time</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Fundamental resources are provisioned as used[cite: 287].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">146. PaaS vendor provides ______.</p>
+        <div class="options">A) Data B) Storage and Maintenance C) Apps D) Passwords</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Vendor provides infrastructure and manages maintenance/scaling[cite: 284].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">147. Cloud enhances ______ and productivity.</p>
+        <div class="options">A) Separation B) Collaboration C) Cost D) Delay</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Collaboration is enhanced as workers access data in real-time[cite: 246].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">148. Private cloud owned by ______.</p>
+        <div class="options">A) General public B) Organization or third party C) Nobody D) Government</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It may be owned/managed by the organization, a third party, or combination[cite: 257].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">149. "Broad network access" promotes ______ client use.</p>
+        <div class="options">A) Single B) Heterogeneous C) No D) Restricted</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: It supports use by various thin or thick client platforms[cite: 230].</span>
+        </div>
+    </div>
+
+    <div class="q-block">
+        <p class="q-text">150. History: Earlier ______ architecture was dominant.</p>
+        <div class="options">A) Cloud B) Client Server C) Distributed D) Peer-to-peer</div>
+        <div class="ans-box">
+            <span class="correct">Answer: B</span>
+            <span class="reason">Reason: Client Server was dominant before the move to distributed and cloud computing[cite: 211].</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+
