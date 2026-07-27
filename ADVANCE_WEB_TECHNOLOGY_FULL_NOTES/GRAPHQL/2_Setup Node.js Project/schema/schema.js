@@ -2,6 +2,12 @@ const {GraphQLSchema, GraphQlObjectType, GraphQLString, GraphQLInt} = require("g
 const { resolve } = require("path");
 
 
+ const Users = [
+        {id: '1', name: 'sandeep', age: 25},
+        {id: '2', name: 'ram', age: 15},
+
+      ];
+
 
 const UserType = new GraphQlObjectType({
   name: "User",
@@ -50,9 +56,41 @@ const RootQuery = new GraphQlObjectType({
 })
 
 
-module.exports = new GraphQLSchema({
-  query: RootQuery
+// Mutation type Working
+const Mutation = new GraphQlObjectType({
+  name: "Mutation",
+  fields: {
+    addUser : {
+      type: UserType,
+      args: {
+        name: {type: GraphQLString},
+        age:{type: GraphQLInt},
+      },
+
+      resolve(parent, args) {
+        const user = {
+          id: UserType.length + 1 + "",
+          name: args.name,
+          age: args.age,
+        }
+        user.push((user));
+        console.log(user);
+        return user;
+      }
+    }
+  }
 })
+
+
+
+module.exports = new GraphQLSchema({
+  query: RootQuery,
+  mutation: Mutation,
+})
+
+
+
+
 
 
 
